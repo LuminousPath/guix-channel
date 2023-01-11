@@ -1,4 +1,5 @@
 (define-module (lp packages crates-extra)
+  #:use-module (gnu packages crates-io)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
   #:use-module (guix packages)
