@@ -1,4 +1,4 @@
-(define module (lp packages rust-wasm)
+(define-module (lp packages rust-wasm)
   #:use-module (lp packages crates-extra)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
