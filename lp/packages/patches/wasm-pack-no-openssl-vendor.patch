@@ -1,0 +1,26 @@
+From cf152fe869b74b8a7badfb3dedc87994cd2f5a39 Mon Sep 17 00:00:00 2001
+From: Jonathan Nogueira <Jonathan.Nogueira@kurumi.dev>
+Date: Sat, 7 Jan 2023 21:07:53 +0900
+Subject: [PATCH] remove 'vendored' from default feature
+
+The 'vendored' feature isn't compatible with guix's 'rust-openssl-sys' package, and needs to be removed to build and install properly
+---
+ Cargo.toml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Cargo.toml b/Cargo.toml
+index 6fd73cf..4e92c7a 100644
+--- a/Cargo.toml
++++ b/Cargo.toml
+@@ -46,7 +46,7 @@ tempfile = "3"
+ 
+ [features]
+ # OpenSSL is vendored by default, can use system OpenSSL through feature flag.
+-default = ['openssl/vendored']
++default = ['openssl']
+ 
+ # Treat compiler warnings as a build error.
+ # This only runs in CI by default
+-- 
+2.38.1
+
