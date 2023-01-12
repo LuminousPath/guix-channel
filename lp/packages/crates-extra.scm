@@ -10,6 +10,7 @@
 
 (define-public rust-serial-test-derive-0.3
   (package
+    (inherit rust-serial-test-derive-0.6)
     (name "rust-serial-test-derive")
     (version "0.3.2")
     (source (origin
@@ -32,6 +33,7 @@
 
 (define-public rust-serial-test-0.3
   (package
+    (inherit rust-serial-test-0.6)
     (name "rust-serial-test")
     (version "0.3.2")
     (source (origin
@@ -54,6 +56,7 @@
 
 (define-public rust-escargot-0.4
   (package
+    (inherit rust-escargot-0.5)
     (name "rust-escargot")
     (version "0.4.0")
     (source (origin
@@ -77,6 +80,7 @@
 
 (define-public rust-assert-cmd-0.11
   (package
+    (inherit rust-assert-cmd-2)
     (name "rust-assert-cmd")
     (version "0.11.1")
     (source (origin
@@ -100,6 +104,7 @@
 
 (define-public rust-serde-ignored-0.0.4
   (package
+    (inherit rust-serde-ignored-0.1)
     (name "rust-serde-ignored")
     (version "0.0.4")
     (source (origin
@@ -121,6 +126,7 @@
 
 (define-public rust-serde-urlencoded-0.5
   (package
+    (inherit rust-serde-urlencoded-0.7)
     (name "rust-serde-urlencoded")
     (version "0.5.5")
     (source (origin
@@ -144,6 +150,7 @@
 
 (define-public rust-hyper-tls-0.3
   (package
+    (inherit rust-hyper-tls-0.5)
     (name "rust-hyper-tls")
     (version "0.3.2")
     (source (origin
@@ -219,6 +226,7 @@
 
 (define-public rust-cookie-store-0.7
   (package
+    (inherit rust-cookie-store-0.15)
     (name "rust-cookie-store")
     (version "0.7.0")
     (source (origin
@@ -248,6 +256,7 @@
 
 (define-public rust-reqwest-0.9
   (package
+    (inherit rust-reqwest-0.11)
     (name "rust-reqwest")
     (version "0.9.24")
     (source (origin
@@ -300,6 +309,7 @@
 
 (define-public rust-parking-lot-core-0.3
   (package
+    (inherit rust-parking-lot-core-0.9)
     (name "rust-parking-lot-core")
     (version "0.3.1")
     (source (origin
@@ -329,6 +339,7 @@
 
 (define-public rust-parking-lot-0.6
   (package
+    (inherit rust-parking-lot-0.12)
     (name "rust-parking-lot")
     (version "0.6.4")
     (source (origin
@@ -399,6 +410,7 @@ primitives.")
 
 (define-public rust-tempfile-2
   (package
+    (inherit rust-tempfile-3)
     (name "rust-tempfile")
     (version "2.2.0")
     (source (origin
@@ -446,6 +458,7 @@ primitives.")
 
 (define-public rust-clicolors-control-0.2
   (package
+    (inherit rust-clicolors-control-1)
     (name "rust-clicolors-control")
     (version "0.2.0")
     (source (origin
@@ -470,6 +483,7 @@ primitives.")
 
 (define-public rust-console-0.6
   (package
+    (inherit rust-console-0.15)
     (name "rust-console")
     (version "0.6.2")
     (source (origin
@@ -499,6 +513,7 @@ primitives.")
 
 (define-public rust-cargo-metadata-0.8
   (package
+    (inherit rust-cargo-metadata-0.15)
     (name "rust-cargo-metadata")
     (version "0.8.2")
     (source (origin
@@ -522,6 +537,7 @@ primitives.")
 
 (define-public rust-is-executable-0.1
   (package
+    (inherit rust-is-executable-1)
     (name "rust-is-executable")
     (version "0.1.2")
     (source (origin
@@ -567,8 +583,10 @@ primitives.")
     (synopsis "Install a binary from a path to a global cache")
     (description "Install a binary from a path to a global cache")
     (license (list license:expat license:asl2.0))))
-(define-public rust-vte-0.10
+
+(define-public rust-vte-0.10.1
   (package
+    (inherit rust-vte-0.10)
     (name "rust-vte")
     (version "0.10.1")
     (source (origin
@@ -589,8 +607,9 @@ primitives.")
     (description "Parser for implementing terminal emulators")
     (license (list license:asl2.0 license:expat))))
 
-(define-public rust-unicode-segmentation-1
+(define-public rust-unicode-segmentation-1.10
   (package
+    (inherit rust-unicode-segmentation-1)
     (name "rust-unicode-segmentation")
     (version "1.10.0")
     (source (origin
@@ -615,6 +634,7 @@ Unicode Standard Annex #29 rules.")
 
 (define-public rust-sysinfo-0.24
   (package
+    (inherit rust-sysinfo-0.15)
     (name "rust-sysinfo")
     (version "0.24.7")
     (source (origin
@@ -642,8 +662,9 @@ Unicode Standard Annex #29 rules.")
 networks")
     (license license:expat)))
 
-(define-public rust-proc-macro2-1
+(define-public rust-proc-macro2-1.0.43
   (package
+    (inherit rust-proc-macro2-1)
     (name "rust-proc-macro2")
     (version "1.0.49")
     (source (origin
@@ -665,8 +686,9 @@ networks")
 API to decouple token-based libraries from the procedural macro use case.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-syn-1
+(define-public rust-syn-1.0.107
   (package
+    (inherit rust-syn-1)
     (name "rust-syn")
     (version "1.0.107")
     (source (origin
@@ -679,7 +701,7 @@ API to decouple token-based libraries from the procedural macro use case.")
     (build-system cargo-build-system)
     (arguments
      `(#:skip-build? #t
-       #:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
+       #:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1.0.43)
                        ("rust-quote" ,rust-quote-1)
                        ("rust-unicode-ident" ,rust-unicode-ident-1))))
     (home-page "https://github.com/dtolnay/syn")
@@ -687,8 +709,9 @@ API to decouple token-based libraries from the procedural macro use case.")
     (description "Parser for Rust source code")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-serde-derive-1
+(define-public rust-serde-derive-1.0.152
   (package
+    (inherit rust-serde-derive-1)
     (name "rust-serde-derive")
     (version "1.0.152")
     (source (origin
@@ -703,15 +726,16 @@ API to decouple token-based libraries from the procedural macro use case.")
      `(#:skip-build? #t
        #:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
                        ("rust-quote" ,rust-quote-1)
-                       ("rust-syn" ,rust-syn-1))))
+                       ("rust-syn" ,rust-syn-1.0.107))))
     (home-page "https://serde.rs")
     (synopsis "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
     (description
      "Macros 1.1 implementation of #[derive(Serialize, Deserialize)]")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-serde-1
+(define-public rust-serde-1.0.152
   (package
+    (inherit rust-serde-1)
     (name "rust-serde")
     (version "1.0.152")
     (source (origin
@@ -724,15 +748,16 @@ API to decouple token-based libraries from the procedural macro use case.")
     (build-system cargo-build-system)
     (arguments
      `(#:skip-build? #t
-       #:cargo-inputs (("rust-serde-derive" ,rust-serde-derive-1))))
+       #:cargo-inputs (("rust-serde-derive" ,rust-serde-derive-1.0.152))))
     (home-page "https://serde.rs")
     (synopsis "A generic serialization/deserialization framework")
     (description
      "This package provides a generic serialization/deserialization framework")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-derive-arbitrary-1
+(define-public rust-derive-arbitrary-1.2
   (package
+    (inherit rust-derive-arbitrary-1)
     (name "rust-derive-arbitrary")
     (version "1.2.2")
     (source (origin
@@ -753,8 +778,9 @@ API to decouple token-based libraries from the procedural macro use case.")
     (description "Derives arbitrary traits")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-arbitrary-1
+(define-public rust-arbitrary-1.2
   (package
+    (inherit rust-arbitrary-1)
     (name "rust-arbitrary")
     (version "1.2.2")
     (source (origin
@@ -775,8 +801,9 @@ API to decouple token-based libraries from the procedural macro use case.")
      "The trait for generating structured data from unstructured data")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-smol-str-0.1
+(define-public rust-smol-str-0.1.2
   (package
+    (inherit rust-smol-str-0.1)
     (name "rust-smol-str")
     (version "0.1.23")
     (source (origin
@@ -796,8 +823,9 @@ API to decouple token-based libraries from the procedural macro use case.")
     (description "small-string optimized string type with O(1) clone")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-serde-json-1
+(define-public rust-serde-json-1.0.9
   (package
+    (inherit rust-serde-json-1)
     (name "rust-serde-json")
     (version "1.0.91")
     (source (origin
@@ -821,6 +849,7 @@ API to decouple token-based libraries from the procedural macro use case.")
 
 (define-public rust-phf-shared-0.11
   (package
+    (inherit rust-phf-shared-0.10)
     (name "rust-phf-shared")
     (version "0.11.1")
     (source (origin
@@ -841,8 +870,9 @@ API to decouple token-based libraries from the procedural macro use case.")
     (description "Support code shared by PHF libraries")
     (license license:expat)))
 
-(define-public rust-criterion-0.3
+(define-public rust-criterion-0.3.6
   (package
+    (inherit rust-criterion-0.3)
     (name "rust-criterion")
     (version "0.3.6")
     (source (origin
@@ -884,6 +914,7 @@ API to decouple token-based libraries from the procedural macro use case.")
 
 (define-public rust-phf-generator-0.11
   (package
+    (inherit rust-phf-generator-0.10)
     (name "rust-phf-generator")
     (version "0.11.1")
     (source (origin
@@ -906,6 +937,7 @@ API to decouple token-based libraries from the procedural macro use case.")
 
 (define-public rust-phf-macros-0.11
   (package
+    (inherit rust-phf-macros-0.10)
     (name "rust-phf-macros")
     (version "0.11.1")
     (source (origin
@@ -931,6 +963,7 @@ API to decouple token-based libraries from the procedural macro use case.")
 
 (define-public rust-phf-0.11
   (package
+    (inherit rust-phf-0.10)
     (name "rust-phf")
     (version "0.11.1")
     (source (origin
@@ -1026,6 +1059,7 @@ use.")
 
 (define-public rust-nix-0.26
   (package
+    (inherit rust-nix-0.24)
     (name "rust-nix")
     (version "0.26.1")
     (source (origin
@@ -1049,8 +1083,9 @@ use.")
     (description "Rust friendly bindings to *nix APIs")
     (license license:expat)))
 
-(define-public rust-ctrlc-3
+(define-public rust-ctrlc-3.2
   (package
+    (inherit rust-ctrlc-3)
     (name "rust-ctrlc")
     (version "3.2.4")
     (source (origin
@@ -1113,8 +1148,9 @@ use.")
 drawing.")
     (license license:expat)))
 
-(define-public rust-plist-1
+(define-public rust-plist-1.3
   (package
+    (inherit rust-plist-1)
     (name "rust-plist")
     (version "1.3.1")
     (source (origin
@@ -1141,6 +1177,7 @@ drawing.")
 
 (define-public rust-syntect-5
   (package
+    (inherit rust-syntect-4)
     (name "rust-syntect")
     (version "5.0.0")
     (source (origin
@@ -1161,7 +1198,7 @@ drawing.")
                        ("rust-lazy-static" ,rust-lazy-static-1)
                        ("rust-once-cell" ,rust-once-cell-1)
                        ("rust-onig" ,rust-onig-6)
-                       ("rust-plist" ,rust-plist-1)
+                       ("rust-plist" ,rust-plist-1.3)
                        ("rust-regex-syntax" ,rust-regex-syntax-0.6)
                        ("rust-serde" ,rust-serde-1)
                        ("rust-serde-derive" ,rust-serde-derive-1)
@@ -1177,8 +1214,9 @@ drawing.")
 Text's grammars")
     (license license:expat)))
 
-(define-public rust-shell-words-1
+(define-public rust-shell-words-1.1
   (package
+    (inherit rust-shell-words-1)
     (name "rust-shell-words")
     (version "1.1.0")
     (source (origin
@@ -1199,6 +1237,7 @@ Text's grammars")
 
 (define-public rust-bugreport-0.5
   (package
+    (inherit rust-bugreport-0.4)
     (name "rust-bugreport")
     (version "0.5.0")
     (source (origin
@@ -1221,6 +1260,7 @@ Text's grammars")
 
 (define-public rust-bat-0.21
   (package
+    (inherit rust-bat-0.18)
     (name "rust-bat")
     (version "0.21.0")
     (source (origin
@@ -1239,7 +1279,6 @@ Text's grammars")
                        ("rust-bincode" ,rust-bincode-1)
                        ("rust-bugreport" ,rust-bugreport-0.5)
                        ("rust-bytesize" ,rust-bytesize-1)
-                       ("rust-clap" ,rust-clap-2)
                        ("rust-clap" ,rust-clap-2)
                        ("rust-clircle" ,rust-clircle-0.3)
                        ("rust-console" ,rust-console-0.15)
@@ -1262,6 +1301,10 @@ Text's grammars")
                        ("rust-unicode-width" ,rust-unicode-width-0.1)
                        ("rust-walkdir" ,rust-walkdir-2)
                        ("rust-wild" ,rust-wild-2))))
+    (native-inputs
+     (list pkg-config))
+    (inputs
+     (list libgit2 zlib))
     (home-page "https://github.com/sharkdp/bat")
     (synopsis "A cat(1) clone with wings.")
     (description "This package provides a cat(1) clone with wings.")
@@ -1269,6 +1312,7 @@ Text's grammars")
 
 (define-public rust-ctrlc-3.2
   (package
+    (inherit rust-ctrlc-3)
     (name "rust-ctrlc")
     (version "3.2.4")
     (source (origin
