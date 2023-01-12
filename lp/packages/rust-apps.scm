@@ -15,7 +15,7 @@
   #:use-module ((guix licenses)
                 #:prefix license:))
 
-(define-public dust-0.8
+(define-public dust
   (package
     (name "dust")
     (version "0.8.3")
