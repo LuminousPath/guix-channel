@@ -8,7 +8,9 @@
   #:use-module (gnu packages tls)
   #:use-module (gnu packages pkg-config)
   #:use-module (guix build-system cargo)
+  #:use-module (guix build-system copy)
   #:use-module (guix git-download)
+  #:use-module (guix download)
   #:use-module (guix packages)
   #:use-module (guix utils)
   #:use-module ((guix licenses)
@@ -49,8 +51,7 @@
         ("rust-openssl" ,rust-openssl-0.10)
         ("rust-parking-lot" ,rust-parking-lot-0.6)
         ("rust-reqwest" ,rust-reqwest-0.9)
-        ("rust-semver" ,rust-semver-0.9)
-        ("rust-serde" ,rust-serde-1)
+        ("rust-semver" ,rust-semver-0.9) ("rust-serde" ,rust-serde-1)
         ("rust-serde-derive" ,rust-serde-derive-1)
         ("rust-serde-ignored" ,rust-serde-ignored-0.0.4)
         ("rust-serde-json" ,rust-serde-json-1)
@@ -74,4 +75,27 @@
     (synopsis "ð¦â¨ Your favorite rust -> wasm workflow tool!")
     (description "ð¦â¨ Your favorite rust -> wasm workflow tool!")
     (license (list license:expat license:asl2.0))))
+
+(define-public rust-wasm-target-1.63
+  (package
+    (name "rust-wasm-target")
+    (version "1.63.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (string-append
+             "https://static.rust-lang.org/dist/rust-std-"
+             version "-wasm32-unknown-unknown.tar.gz"))
+       (sha256
+        (base32
+         "1dbwxj8wxzpb21spjxqjr8fd3yvgrdhh43866jpw8qx5v25rza0b"))))
+    (build-system copy-build-system)
+    (arguments
+     '(#:install-plan '(("rust-std-wasm32-unknown-unknown/lib/rustlib/wasm32-unknown-unknown" "lib/rustlib/"))))
+    (home-page "https://www.rust-lang.org")
+    (synopsis
+     "Rust wasm target")
+    (description
+     "Rust wasm target")
+    (license (list license:asl2.0 license:expat))))
 
