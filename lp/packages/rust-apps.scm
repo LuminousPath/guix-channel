@@ -32,7 +32,7 @@
     (build-system cargo-build-system)
     (arguments
      `(#:install-source? #f
-       $:cargo-test-flags
+       #:cargo-test-flags
        '("--release"
          "--"
          "--skip=subcommands::diff::main_tests::test_apparent_size")
