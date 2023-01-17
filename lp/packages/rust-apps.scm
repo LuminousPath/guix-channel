@@ -35,7 +35,7 @@
        #:cargo-test-flags
        '("--release"
          "--"
-         "--skip=subcommands::diff::main_tests::test_apparent_size")
+         "--skip=test_apparent_size")
        #:cargo-inputs
        (("rust-ansi-term" ,rust-ansi-term-0.12)
         ("rust-clap" ,rust-clap-3)
