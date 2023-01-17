@@ -17,7 +17,7 @@
        (method url-fetch)
        (uri
         (string-append
-         "https://github.com/ryanoasis/nerd-fonts/releases/downloads/v"
+         "https://github.com/ryanoasis/nerd-fonts/releases/download/v"
          version
          "/Hasklig.zip"))
        (sha256
