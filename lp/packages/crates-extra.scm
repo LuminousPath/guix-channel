@@ -1334,3 +1334,164 @@ Text's grammars")
     (synopsis "Easy Ctrl-C handler for Rust projects")
     (description "Easy Ctrl-C handler for Rust projects")
     (license (list license:expat license:asl2.0))))
+
+;; This was added specifically to fix the issue in tealdeer: https://issues/guix.gnu.org/57867
+;; TODO: remove this when tealdeer is updated/fixed
+(define-public rust-reqwest-0.10.10-patched
+  (package
+    (inherit rust-reqwest-0.11)
+    (name "rust-reqwest-patched")
+    (version "0.10.10")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "reqwest" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0z7l46m1mjnvncscaq61zq6qmazrmb33vwjcnfrxpi0liqdgh607"))))
+    (arguments
+     `(#:cargo-test-flags '("--release" "--"
+                            ;; These tests require internet access.
+                            "--skip=test_badssl_modern"
+                            "--skip=test_badssl_self_signed"
+                            ;; XXX: Not sure why these fail.
+                            "--skip=test_allowed_methods"
+                            "--skip=connect_timeout")
+       #:cargo-inputs
+       (("rust-async-compression" ,rust-async-compression-0.3)
+        ("rust-base64" ,rust-base64-0.13)
+        ("rust-bytes" ,rust-bytes-0.5)
+        ("rust-cookie" ,rust-cookie-0.14)
+        ("rust-cookie-store" ,rust-cookie-store-0.12)
+        ("rust-encoding-rs" ,rust-encoding-rs-0.8)
+        ("rust-futures-core" ,rust-futures-core-0.3)
+        ("rust-futures-util" ,rust-futures-util-0.3)
+        ("rust-http" ,rust-http-0.2)
+        ("rust-http-body" ,rust-http-body-0.3)
+        ("rust-hyper" ,rust-hyper-0.13.7-patched)
+        ("rust-hyper-rustls" ,rust-hyper-rustls-0.21)
+        ("rust-hyper-tls" ,rust-hyper-tls-0.4)
+        ("rust-ipnet" ,rust-ipnet-2)
+        ("rust-js-sys" ,rust-js-sys-0.3)
+        ("rust-lazy-static" ,rust-lazy-static-1)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-mime" ,rust-mime-0.3)
+        ("rust-mime-guess" ,rust-mime-guess-2)
+        ("rust-native-tls" ,rust-native-tls-0.2)
+        ("rust-percent-encoding" ,rust-percent-encoding-2)
+        ("rust-pin-project-lite" ,rust-pin-project-lite-0.2)
+        ("rust-rustls" ,rust-rustls-0.18)
+        ("rust-rustls-native-certs" ,rust-rustls-native-certs-0.4)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-json" ,rust-serde-json-1)
+        ("rust-serde-urlencoded" ,rust-serde-urlencoded-0.7)
+        ("rust-time" ,rust-time-0.2)
+        ("rust-tokio" ,rust-tokio-0.2)
+        ("rust-tokio-rustls" ,rust-tokio-rustls-0.14)
+        ("rust-tokio-socks" ,rust-tokio-socks-0.3)
+        ("rust-tokio-tls" ,rust-tokio-tls-0.3)
+        ("rust-trust-dns-resolver" ,rust-trust-dns-resolver-0.19)
+        ("rust-url" ,rust-url-2)
+        ("rust-wasm-bindgen" ,rust-wasm-bindgen-0.2)
+        ("rust-wasm-bindgen-futures" ,rust-wasm-bindgen-futures-0.4)
+        ("rust-web-sys" ,rust-web-sys-0.3)
+        ("rust-webpki-roots" ,rust-webpki-roots-0.20)
+        ("rust-winreg" ,rust-winreg-0.7))
+       #:cargo-development-inputs
+       (("rust-brotli" ,rust-brotli-3)
+        ("rust-doc-comment" ,rust-doc-comment-0.3)
+        ("rust-env-logger" ,rust-env-logger-0.7)
+        ("rust-hyper" ,rust-hyper-0.13)
+        ("rust-libflate" ,rust-libflate-1)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-tokio" ,rust-tokio-0.2)
+        ("rust-wasm-bindgen-test" ,rust-wasm-bindgen-test-0.3))))
+    (native-inputs
+     (list pkg-config))
+    (inputs
+     (list openssl))))
+
+;; This was added specifically to fix the issue in tealdeer: https://issues/guix.gnu.org/57867
+;; TODO: remove this when tealdeer is updated/fixed
+(define-public rust-hyper-0.13.7-patched
+  (package
+    (inherit rust-hyper-0.14)
+    (name "rust-hyper-patched")
+    (version "0.13.7")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "hyper" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1symcnba2y03b8lj6xp2wd994lk3xyk3wizacjg5s60njzfshs1y"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-bytes" ,rust-bytes-0.5)
+        ("rust-futures-channel" ,rust-futures-channel-0.3)
+        ("rust-futures-core" ,rust-futures-core-0.3)
+        ("rust-futures-util" ,rust-futures-util-0.3)
+        ("rust-h2" ,rust-h2-0.2)
+        ("rust-http" ,rust-http-0.2)
+        ("rust-http-body" ,rust-http-body-0.3)
+        ("rust-httparse" ,rust-httparse-1)
+        ("rust-itoa" ,rust-itoa-0.4)
+        ("rust-pin-project" ,rust-pin-project-0.4.29)
+        ("rust-socket2" ,rust-socket2-0.3)
+        ("rust-time" ,rust-time-0.1)
+        ("rust-tokio" ,rust-tokio-0.2)
+        ("rust-tower-service" ,rust-tower-service-0.3)
+        ("rust-tracing" ,rust-tracing-0.1)
+        ("rust-want" ,rust-want-0.3))
+       #:cargo-development-inputs
+       (("rust-futures-util" ,rust-futures-util-0.3)
+        ("rust-matches" ,rust-matches-0.1)
+        ("rust-num-cpus" ,rust-num-cpus-1)
+        ("rust-pretty-env-logger" ,rust-pretty-env-logger-0.4)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-derive" ,rust-serde-derive-1)
+        ("rust-serde-json" ,rust-serde-json-1)
+        ("rust-spmc" ,rust-spmc-0.3)
+        ("rust-tokio" ,rust-tokio-0.2)
+        ("rust-tokio-test" ,rust-tokio-test-0.2)
+        ("rust-tokio-util" ,rust-tokio-util-0.3)
+        ("rust-tower-util" ,rust-tower-util-0.3)
+        ("rust-url" ,rust-url-1))))))
+
+(define-public rust-pin-project-0.4.29
+  (package
+    (inherit rust-pin-project-1)
+    (name "rust-pin-project")
+    (version "0.4.29")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pin-project" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "02f93m6qq0hiq7mmf9wqn7kph4nw9lk9jd06zzlpjx8k666w25cn"))))
+    (arguments
+     `(#:tests? #f ; XXX: Fix-me.
+       #:cargo-inputs
+       (("rust-pin-project-internal" ,rust-pin-project-internal-0.4.29))))))
+
+(define-public rust-pin-project-internal-0.4.29
+  (package
+    (inherit rust-pin-project-internal-1)
+    (name "rust-pin-project-internal")
+    (version "0.4.29")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "pin-project-internal" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0ami799a794z5a8h190f20vqzwby0kkbqnwxkpadkvhrf1168j84"))))
+    (arguments
+     `(#:tests? #f ; XXX: Fix-me.
+       #:cargo-inputs
+       (("rust-proc-macro2" ,rust-proc-macro2-1)
+        ("rust-quote" ,rust-quote-1)
+        ("rust-syn" ,rust-syn-1))))))

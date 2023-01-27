@@ -6,9 +6,11 @@
   #:use-module (gnu packages compression)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages rust)
+  #:use-module (gnu packages tls)
   #:use-module (gnu packages)
   #:use-module (lp packages)
   #:use-module (guix git-download)
+  #:use-module (guix download)
   #:use-module (guix build-system cargo)
   #:use-module (guix packages)
   #:use-module (guix utils)
@@ -126,3 +128,81 @@
     (synopsis "A syntax-highlighting pager for git")
     (description "This package provides a syntax-highlighting pager for git")
     (license license:expat)))
+
+;; This was added specifically to fix the issue in tealdeer: https://issues/guix.gnu.org/57867
+;; TODO: remove this when tealdeer is updated/fixed
+(define-public tealdeer-patched
+  (package
+    (name "tealdeer-patched")
+    (version "1.4.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "tealdeer" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0cwf46k2rszcpydrqajnm4dvhggr3ms7sjma0jx02ch4fjicxch7"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:phases
+       (modify-phases %standard-phases
+         (add-after 'install 'install-completions
+           (lambda* (#:key outputs #:allow-other-keys)
+             (let* ((out  (assoc-ref outputs "out"))
+                    (bash (string-append out "/etc/bash_completion.d/"))
+                    (fish (string-append out "/share/fish/vendor_completions.d/")))
+               (mkdir-p bash)
+               (mkdir-p fish)
+               (copy-file "bash_tealdeer"
+                          (string-append bash "tealdeer"))
+               (copy-file "fish_tealdeer"
+                          (string-append fish "tealdeer.fish"))))))
+       #:install-source? #f
+       #:cargo-test-flags
+       '("--release" "--"
+         ;; These tests go to the network
+         "--skip=test_quiet_old_cache"
+         "--skip=test_quiet_cache"
+         "--skip=test_quiet_failures"
+         "--skip=test_pager_flag_enable"
+         "--skip=test_markdown_rendering"
+         "--skip=test_spaces_find_command"
+         "--skip=test_autoupdate_cache"
+         "--skip=test_update_cache")
+       #:cargo-inputs
+       (("rust-ansi-term" ,rust-ansi-term-0.12)
+        ("rust-app-dirs2" ,rust-app-dirs2-2)
+        ("rust-atty" ,rust-atty-0.2)
+        ("rust-docopt" ,rust-docopt-1)
+        ("rust-env-logger" ,rust-env-logger-0.7)
+        ("rust-flate2" ,rust-flate2-1)
+        ("rust-log" ,rust-log-0.4)
+        ("rust-pager" ,rust-pager-0.15)
+        ("rust-reqwest" ,rust-reqwest-0.10.10-patched)
+        ("rust-serde" ,rust-serde-1)
+        ("rust-serde-derive" ,rust-serde-derive-1)
+        ("rust-tar" ,rust-tar-0.4)
+        ("rust-toml" ,rust-toml-0.5)
+        ("rust-walkdir" ,rust-walkdir-2)
+        ("rust-xdg" ,rust-xdg-2))
+       #:cargo-development-inputs
+       (("rust-assert-cmd" ,rust-assert-cmd-1)
+        ("rust-escargot" ,rust-escargot-0.5)
+        ("rust-filetime" ,rust-filetime-0.2)
+        ("rust-predicates" ,rust-predicates-1)
+        ;; This earlier version is required to fix a bug.
+        ;; Remove rust-remove-dir-all-0.5.2 when tealdeer gets upgraded
+        ("rust-remove-dir-all" ,rust-remove-dir-all-0.5.2)
+        ("rust-tempfile" ,rust-tempfile-3))))
+    (native-inputs
+     (list pkg-config))
+    (inputs
+     (list openssl))
+    (home-page "https://github.com/dbrgn/tealdeer/")
+    (synopsis "Fetch and show tldr help pages for many CLI commands")
+    (description
+     "This package fetches and shows tldr help pages for many CLI commands.
+Full featured offline client with caching support.")
+    (license (list license:expat license:asl2.0))))
