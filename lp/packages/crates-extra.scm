@@ -4,6 +4,7 @@
   #:use-module (gnu packages compression)
   #:use-module (gnu packages version-control)
   #:use-module (gnu packages pkg-config)
+  #:use-module (gnu packages tls)
   #:use-module (guix build-system cargo)
   #:use-module (guix download)
   #:use-module (guix packages)
