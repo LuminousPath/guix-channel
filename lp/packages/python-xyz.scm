@@ -64,3 +64,19 @@
        (sha256
         (base32
          "1rp4m3cvafr0yb09k4s22vvrphj4ysjhq43lx9d1gcjvqd229744")))))) ; might need to re-add a v1.11 patch for the fish shell
+
+(define-public python-nodeenv-1.6
+ (package
+   (name "python-nodeenv")
+   (version "1.6.0")
+   (source (origin
+             (method url-fetch)
+             (uri (pypi-uri "nodeenv" version))
+             (sha256
+              (base32
+               "0ascg98p2r7ay2n09gjd8q5d1z9znrwskyagg952mfli0bwkzw9y"))))
+   (build-system python-build-system)
+   (home-page "https://github.com/ekalinin/nodeenv")
+   (synopsis "Node.js virtual environment builder")
+   (description "Node.js virtual environment builder")
+   (license license:bsd-3)) )
