@@ -65,6 +65,24 @@
         (base32
          "1rp4m3cvafr0yb09k4s22vvrphj4ysjhq43lx9d1gcjvqd229744")))))) ; might need to re-add a v1.11 patch for the fish shell
 
+(define-public python-pyright
+  (package
+    (name "python-pyright")
+    (version "1.1.291")
+    (source (origin
+              (method url-fetch)
+              (uri (pypi-uri "pyright" version))
+              (sha256
+               (base32
+                "1gbi4sq3m6a5ja22bvfx6sndg2wxck88lwz1xqwf9y4r38zz8iir"))))
+    (build-system python-build-system)
+    (propagated-inputs (list python-nodeenv-1.6))
+    (native-inputs (list python-twine python-pytest))
+    (home-page "https://github.com/RobertCraigie/pyright-python")
+    (synopsis "Command line wrapper for pyright")
+    (description "Command line wrapper for pyright")
+    (license license:expat)))
+
 (define-public python-nodeenv-1.6
  (package
    (name "python-nodeenv")
