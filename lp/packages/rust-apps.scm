@@ -6,6 +6,7 @@
   #:use-module (gnu packages compression)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages rust)
+  #:use-module (gnu packages ssh)
   #:use-module (gnu packages tls)
   #:use-module (gnu packages)
   #:use-module (lp packages)
@@ -123,7 +124,7 @@
     (native-inputs
      (list pkg-config))
     (inputs
-     (list libgit2 zlib))
+     (list libgit2-1.4 libssh2 openssl zlib))
     (home-page "https://github.com/dandavison/delta")
     (synopsis "A syntax-highlighting pager for git")
     (description "This package provides a syntax-highlighting pager for git")
