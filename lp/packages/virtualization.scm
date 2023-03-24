@@ -8,6 +8,7 @@
   #:use-module (gnu packages ruby)
   #:use-module (lp packages ruby))
 
+;; TODO: vagrant gives an error message about not using official installers, so this will likely need to be patched
 (define-public vagrant
   (package
     (name "vagrant")
@@ -30,14 +31,14 @@
        ("ruby-i18n" ,ruby-i18n-1.8)
        ("ruby-listen" ,ruby-listen-3.1)
        ("ruby-log4r" ,ruby-log4r)
-       ("ruby-net-ssh" ,ruby-net-ssh)
+       ("ruby-net-ssh" ,ruby-net-ssh-5)
        ("ruby-net-scp" ,ruby-net-scp-1.2.0)
        ("ruby-net-sftp" ,ruby-net-sftp)
        ("ruby-rb-kqueue" ,ruby-rb-kqueue)
        ("ruby-ed25519" ,ruby-ed25519)
        ("ruby-bcrypt-pbkdf" ,ruby-bcrypt-pbkdf)
        ("ruby-rest-client" ,ruby-rest-client)
-       ("ruby-rubyzip" ,ruby-rubyzip)
+       ("ruby-rubyzip" ,ruby-rubyzip-2)
        ("ruby-wdm" ,ruby-wdm)
        ("ruby-winrm" ,ruby-winrm)
        ("ruby-winrm-fs" ,ruby-winrm-fs)

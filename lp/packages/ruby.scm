@@ -336,7 +336,7 @@ for a better performance.")
     (home-page "https://github.com/WinRb/winrm-elevated")
     (license #f)))
 
-(define-public ruby-rubyzip
+(define-public ruby-rubyzip-2
   (package
     (name "ruby-rubyzip")
     (version "2.3.2")
@@ -677,7 +677,7 @@ you about the changes.")
               (uri (rubygems-uri "net-ssh" version))
               (sha256
                (base32
-                "07c4v97zl1daabmri9zlbzs6yvkl56z1q14bw74d53jdj0c17nhx"))))
+                "101wd2px9lady54aqmkibvy4j62zk32w0rjz4vnigyg974fsga40"))))
     (build-system ruby-build-system)
     (native-inputs
      (list bundler ruby-mocha ruby-test-unit))
