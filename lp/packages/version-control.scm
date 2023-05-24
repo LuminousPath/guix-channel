@@ -2,6 +2,7 @@
   #:use-module (guix packages)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages check)
+  #:use-module (gnu packages python-build)
   #:use-module (lp packages python-xyz)
   #:use-module (guix build-system python)
   #:use-module (guix build-system pyproject)
@@ -22,7 +23,7 @@
                 "0ivxqlmj1s5rn8r50ahw0fjjcq6nmn0l0q7wwxszqhygnsk7fjqz"))))
     (build-system pyproject-build-system)
     (arguments (list #:tests? #f)) ; There are no tests
-    (inputs
+    (propagated-inputs
      (list
       python-typing-extensions
       python-termcolor
