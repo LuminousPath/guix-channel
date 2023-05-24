@@ -22,7 +22,7 @@
                 "0ivxqlmj1s5rn8r50ahw0fjjcq6nmn0l0q7wwxszqhygnsk7fjqz"))))
     (build-system pyproject-build-system)
     (arguments (list #:tests? #f)) ; There are no tests
-    (propagated-inputs
+    (inputs
      (list
       python-typing-extensions
       python-termcolor
