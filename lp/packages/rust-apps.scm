@@ -195,7 +195,7 @@
         ("rust-predicates" ,rust-predicates-1)
         ;; This earlier version is required to fix a bug.
         ;; Remove rust-remove-dir-all-0.5.2 when tealdeer gets upgraded
-        ("rust-remove-dir-all" ,rust-remove-dir-all-0.5.2)
+        ("rust-remove-dir-all-0.5" ,rust-remove-dir-all-0.5.2)
         ("rust-tempfile" ,rust-tempfile-3))))
     (native-inputs
      (list pkg-config))
