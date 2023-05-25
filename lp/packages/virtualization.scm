@@ -24,7 +24,7 @@
     (arguments
      `(#:ruby ,ruby-2.6
        #:tests? #f)) ; bundler error.
-    (inputs
+    (propagated-inputs
      `(("ruby-childprocess" ,ruby-childprocess)
        ("ruby-erubis" ,ruby-erubis)
        ("ruby-hashicorp-checkpoint" ,ruby-hashicorp-checkpoint)
