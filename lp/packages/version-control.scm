@@ -33,7 +33,7 @@
       python-argcomplete-1.12))
     (native-inputs
      (list
-      poetry))
+      poetry-1.1.12))
     (home-page "https://github.com/commitizen-tools/commitizen")
     (synopsis "Python commitizen client tool")
     (description "Python commitizen client tool")
