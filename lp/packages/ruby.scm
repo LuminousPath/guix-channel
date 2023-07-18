@@ -639,9 +639,11 @@ gemspec file")
          "1hqmkfa9f2xb5jlvqbafdxjd5ax75jm8gqj5nh3k22xq0kacsvgg"))))
     (build-system ruby-build-system)
     (arguments
-     `(#:tests? #f ; TODO: re-enable
+     (list
+       #:ruby ruby-2.7
+       #:tests? #f ; TODO: re-enable
        #:phases
-       (modify-phases %standard-phases
+       #~(modify-phases %standard-phases
          (add-after 'unpack 'fix-files-in-gemspec
            (lambda _
              (substitute* "listen.gemspec"
