@@ -602,7 +602,9 @@ expectations on HTTP requests.")
                 "0v0qznxz999lx4vs76mr590r90i0cm5m76wwvgis7sq4y21l308l"))))
     (build-system ruby-build-system)
     (arguments
-     `(#:tests? #f)) ; TODO: Re-enable.
+     (list
+      #:ruby ruby-2.7
+      #:tests? #f)) ; TODO: Re-enable.
     (synopsis
      "Creates a version constraint of supported Rubies,suitable for a gemspec file")
     (description
