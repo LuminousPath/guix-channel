@@ -26,6 +26,7 @@
        #:tests? #f)) ; bundler error.
     (propagated-inputs
      `(("ruby-childprocess" ,ruby-childprocess)
+       ("ruby-dotenv" ,ruby-dotenv)
        ("ruby-erubis" ,ruby-erubis)
        ("ruby-hashicorp-checkpoint" ,ruby-hashicorp-checkpoint)
        ("ruby-i18n" ,ruby-i18n-1.8)

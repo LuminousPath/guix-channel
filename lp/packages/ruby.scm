@@ -387,7 +387,12 @@ signature system described in RFC 8032.")
                 "0cj4k13c7qvvck7y25i3xarvyqq8d27vl61jddifkc7llnnap1hv"))))
     (build-system ruby-build-system)
     (arguments
-     `(#:tests? #f)) ; TODO: Re-enable.
+     (list #:tests? #f ; TODO: Re-enable.
+           #:phases #~(modify-phases %standard-phases
+                        (add-after 'build 'compile
+                          (lambda _
+                            (invoke "rake" "compile"))))))
+    (native-inputs (list ruby-rake-compiler ruby-rspec))
     (synopsis
      "    This gem implements bcrypt_pdkfd (a variant of PBKDF2 with bcrypt-based PRF)
 ")
