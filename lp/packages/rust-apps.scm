@@ -307,3 +307,37 @@ exec -a \"$0\" \"~a\" \"$@\""
 language.  It is a part of a larger rls-2.0 effort to create excellent IDE
 support for Rust.")
     (license (list license:expat license:asl2.0))))
+
+(define-public zellij
+  (package
+    (name "zellij")
+    (version "0.37.2")
+    (source (origin
+              (method url-fetch)
+              (uri (crate-uri "zellij" version))
+              (file-name (string-append name "-" version ".tar.gz"))
+              (sha256
+               (base32
+                "1c2f3kidfgqqg9pwy17agrkl3apd7h84wyzqpxdc8fjgxknzdjbv"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:tests? #f ; no tests
+       #:cargo-inputs (("rust-dialoguer" ,rust-dialoguer-0.10)
+                       ("rust-log" ,rust-log-0.4)
+                       ("rust-names" ,rust-names-0.14)
+                       ("rust-suggest" ,rust-suggest-0.4)
+                       ("rust-thiserror" ,rust-thiserror-1)
+                       ("rust-zellij-client" ,rust-zellij-client-0.37)
+                       ("rust-zellij-server" ,rust-zellij-server-0.37)
+                       ("rust-zellij-utils" ,rust-zellij-utils-0.37))
+       #:cargo-development-inputs (("rust-insta" ,rust-insta-1.18)
+                                   ("rust-rand" ,rust-rand-0.8)
+                                   ("rust-regex" ,rust-regex-1)
+                                   ("rust-ssh2" ,rust-ssh2-0.9))))
+    (inputs
+     (list openssl zlib))
+    (home-page "https://zellij.dev")
+    (synopsis "A terminal workspace with batteries included")
+    (description
+     "This package provides a terminal workspace with batteries included")
+    (license license:expat)))
