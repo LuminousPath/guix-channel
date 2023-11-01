@@ -176,7 +176,7 @@
        (("rust-arbitrary" ,rust-arbitrary-1)
         ("rust-derive-arbitrary" ,rust-derive-arbitrary-1)
         ("rust-expect-test" ,rust-expect-test-1)
-        ("rust-oorandom" ,rust-oorandom-11.1)
+        ("rust-oorandom" ,rust-oorandom-11)
         ("rust-quote" ,rust-quote-1)
         ("rust-rayon" ,rust-rayon-1)
         ("rust-tracing" ,rust-tracing-0.1)
