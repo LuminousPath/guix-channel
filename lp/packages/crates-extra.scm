@@ -1413,6 +1413,32 @@ Text's grammars")
     (inputs
      (list openssl))))
 
+(define-public rust-hyper-rustls-0.17
+  (package
+    (inherit rust-hyper-rustls-0.21)
+    (name "rust-hyper-rustls")
+    (version "0.17.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "hyper-rustls" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0li9xkzmqd40dbjbl9g0nbf2ka9y0q538ififyd30zsavz3qb7bi"))))
+    (arguments
+     `(#:cargo-test-flags '("--release" "--" "--skip=server" "--skip=client"
+                            "--skip=custom_ca_store")
+       #:cargo-inputs
+       (("rust-bytes" ,rust-bytes-0.4)
+        ("rust-ct-logs" ,rust-ct-logs-0.6)
+        ("rust-futures" ,rust-futures-0.1)
+        ("rust-hyper" ,rust-hyper-0.12)
+        ("rust-rustls" ,rust-rustls-0.16)
+        ("rust-tokio-io" ,rust-tokio-io-0.1)
+        ("rust-tokio-rustls" ,rust-tokio-rustls-0.10)
+        ("rust-webpki" ,rust-webpki-0.21)
+        ("rust-webpki-roots" ,rust-webpki-roots-0.17))))))
+
 ;; This was added specifically to fix the issue in tealdeer: https://issues/guix.gnu.org/57867
 ;; TODO: remove this when tealdeer is updated/fixed
 (define-public rust-hyper-0.13.7-patched
