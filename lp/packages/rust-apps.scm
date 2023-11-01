@@ -300,7 +300,7 @@ exec -a \"$0\" \"~a\" \"$@\""
                (chdir "../..")
                (install-file "LICENSE-MIT" doc)
                (install-file "LICENSE-APACHE" doc)))))))
-    (native-inputs (list rust-src))
+    (native-inputs (list rust-src-1.64))
     (home-page "https://rust-analyzer.github.io/")
     (synopsis "Experimental Rust compiler front-end for IDEs")
     (description "Rust-analyzer is a modular compiler frontend for the Rust
