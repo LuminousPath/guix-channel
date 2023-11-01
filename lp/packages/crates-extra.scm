@@ -1413,6 +1413,47 @@ Text's grammars")
     (inputs
      (list openssl))))
 
+(define-public rust-ct-logs-0.6
+  (package
+    (inherit rust-ct-logs-0.7)
+    (name "rust-ct-logs")
+    (version "0.6.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "ct-logs" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "04wiwiv4ghni3x2vni3z711mlz0ndqvh04vmdkbw3nr7zbsqcdjd"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-sct" ,rust-sct-0.6))))))
+
+(define-public rust-tokio-rustls-0.10
+  (package
+    (inherit rust-tokio-rustls-0.12)
+    (name "rust-tokio-rustls")
+    (version "0.10.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "tokio-rustls" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0xh6gxilm7waj55rxfgqmvl8abynzr3ang57qvbap400k67z0z1d"))))
+    (arguments
+     `(#:cargo-test-flags '("--release" "--" "--skip=test_badssl")
+       #:cargo-inputs
+       (("rust-bytes" ,rust-bytes-0.4)
+        ("rust-futures" ,rust-futures-0.1)
+        ("rust-iovec" ,rust-iovec-0.1)
+        ("rust-rustls" ,rust-rustls-0.16)
+        ("rust-tokio-io" ,rust-tokio-io-0.1)
+        ("rust-webpki" ,rust-webpki-0.21))
+       #:cargo-development-inputs
+       (("rust-tokio" ,rust-tokio-0.1)
+        ("rust-webpki-roots" ,rust-webpki-roots-0.17))))))
+
 (define-public rust-hyper-rustls-0.17
   (package
     (inherit rust-hyper-rustls-0.21)
