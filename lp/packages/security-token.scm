@@ -25,6 +25,7 @@
                              python-fido2
                              python-keyring
                              python-pyscard))
+    (native-inputs (list poetry))
     (home-page "https://github.com/Yubico/yubikey-manager")
     (synopsis "Tool for managing your YubiKey configuration")
     (description "Tool for managing your @code{YubiKey} configuration.")
