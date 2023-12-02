@@ -3,8 +3,10 @@
   #:use-module (guix download)
   #:use-module (guix build-system python)
   #:use-module (guix build-system pyproject)
+  #:use-module (gnu packages check)
   #:use-module (gnu packages python-xyz)
   #:use-module (gnu packages python-crypto)
+  #:use-module (gnu packages python-build)
   #:use-module (gnu packages security-token)
   #:use-module ((guix licenses)
                 #:prefix license:))
@@ -25,7 +27,10 @@
                              python-fido2
                              python-keyring
                              python-pyscard))
-    (native-inputs (list poetry))
+    (native-inputs (list
+                    python-poetry-core
+                    python-pytest
+                    python-makefun))
     (home-page "https://github.com/Yubico/yubikey-manager")
     (synopsis "Tool for managing your YubiKey configuration")
     (description "Tool for managing your @code{YubiKey} configuration.")
