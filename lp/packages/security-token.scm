@@ -1,3 +1,8 @@
+(define-module (lp packages security-token)
+  (#:use-module (gnu packages python-xyz)
+   #:use-module (gnu packages python-crypto)
+   #:use-module (gnu packages security-token)))
+
 (package
   (name "yubikey-manager")
   (version "5.2.1")
@@ -12,8 +17,7 @@
                            python-cryptography
                            python-fido2
                            python-keyring
-                           python-pyscard
-                           python-pywin32))
+                           python-pyscard))
   (home-page "https://github.com/Yubico/yubikey-manager")
   (synopsis "Tool for managing your YubiKey configuration.")
   (description "Tool for managing your @code{YubiKey} configuration.")
