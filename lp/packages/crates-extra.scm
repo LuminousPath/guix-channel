@@ -1651,34 +1651,6 @@ commands, forwarding local ports, etc.
 commands, forwarding local ports, etc.")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-regex-1
-  (package
-    (name "rust-regex")
-    (version "1.9.3")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "regex" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "06k5dlj9341jlsbqg23kqx9kn29hq41yczvlf1mc5yl9mx61vg41"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-aho-corasick" ,rust-aho-corasick-1)
-                       ("rust-memchr" ,rust-memchr-2)
-                       ("rust-regex-automata" ,rust-regex-automata-0.3)
-                       ("rust-regex-syntax" ,rust-regex-syntax-0.7))))
-    (home-page "https://github.com/rust-lang/regex")
-    (synopsis
-     "An implementation of regular expressions for Rust. This implementation uses
-finite automata and guarantees linear time matching on all inputs.
-")
-    (description
-     "An implementation of regular expressions for Rust.  This implementation uses
-finite automata and guarantees linear time matching on all inputs.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-wasmer-wasi-types-2
   (package
     (name "rust-wasmer-wasi-types")
@@ -2343,37 +2315,6 @@ kernel that underlies OSX.")
     (synopsis "Runtime library support for Wasmer")
     (description "Runtime library support for Wasmer")
     (license (list license:expat license:asl2.0))))
-
-(define-public rust-object-0.28
-  (package
-    (name "rust-object")
-    (version "0.28.4")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "object" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "0964501nlfh806mik3f9v6n05mx74qa0w7byvn0sqpwm5lprhb74"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
-                       ("rust-crc32fast" ,rust-crc32fast-1)
-                       ("rust-flate2" ,rust-flate2-1)
-                       ("rust-hashbrown" ,rust-hashbrown-0.11)
-                       ("rust-indexmap" ,rust-indexmap-1)
-                       ("rust-memchr" ,rust-memchr-2)
-                       ("rust-rustc-std-workspace-alloc" ,rust-rustc-std-workspace-alloc-1)
-                       ("rust-rustc-std-workspace-core" ,rust-rustc-std-workspace-core-1)
-                       ("rust-wasmparser" ,rust-wasmparser-0.57))))
-    (home-page "https://github.com/gimli-rs/object")
-    (synopsis
-     "A unified interface for reading and writing object file formats.")
-    (description
-     "This package provides a unified interface for reading and writing object file
-formats.")
-    (license (list license:asl2.0 license:expat))))
 
 (define-public rust-alloc-traits-0.1
   (package
@@ -4420,49 +4361,6 @@ for the `log` facade")
     (description "Detects whether a terminal supports rendering hyperlinks.")
     (license license:asl2.0)))
 
-(define-public rust-serde-derive-1
-  (package
-    (name "rust-serde-derive")
-    (version "1.0.183")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "serde_derive" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "05j8kbch6wpjk6m7kcgnx3bwkcsg5pp2zfci3bkvxfdhc0nrgzma"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
-                       ("rust-quote" ,rust-quote-1)
-                       ("rust-syn" ,rust-syn-2))))
-    (home-page "https://serde.rs")
-    (synopsis "Implementation of #[derive(Serialize, Deserialize)]")
-    (description "Implementation of #[derive(Serialize, Deserialize)]")
-    (license (list license:expat license:asl2.0))))
-
-(define-public rust-serde-1
-  (package
-    (name "rust-serde")
-    (version "1.0.183")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "serde" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "0g7bv28rp0h0bdy116r63aldyvlfkpy318a54x9nv1vp4sh8vb1j"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-serde-derive" ,rust-serde-derive-1))))
-    (home-page "https://serde.rs")
-    (synopsis "A generic serialization/deserialization framework")
-    (description
-     "This package provides a generic serialization/deserialization framework")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-is-ci-1
   (package
     (name "rust-is-ci")
@@ -4789,26 +4687,6 @@ RGB(a)( as hexadecimal too), HSL(a), CMYK color models and with ANSI color codes
     (description "Async multi-producer multi-consumer channel")
     (license (list license:asl2.0 license:expat))))
 
-(define-public rust-anyhow-1
-  (package
-    (name "rust-anyhow")
-    (version "1.0.72")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "anyhow" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "0m08x5pwz8ndyjdxmyy41ix8mvjlrr5pihw0gdsapizch0nw64rv"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-backtrace" ,rust-backtrace-0.3))))
-    (home-page "https://github.com/dtolnay/anyhow")
-    (synopsis "Flexible concrete Error type built on std::error::Error")
-    (description "Flexible concrete Error type built on std::error::Error")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-zellij-utils-0.37
   (package
     (name "rust-zellij-utils")
@@ -4915,49 +4793,6 @@ RGB(a)( as hexadecimal too), HSL(a), CMYK color models and with ANSI color codes
     (description "Parser for Rust source code")
     (license (list license:expat license:asl2.0))))
 
-(define-public rust-quote-1
-  (package
-    (name "rust-quote")
-    (version "1.0.32")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "quote" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "0rarx33n4sp7ihsiasrjip5qxh01f5sn80daxc6m885pryfb7wsh"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1))))
-    (home-page "https://github.com/dtolnay/quote")
-    (synopsis "Quasi-quoting macro quote!(...)")
-    (description "Quasi-quoting macro quote!(...)")
-    (license (list license:expat license:asl2.0))))
-
-(define-public rust-proc-macro2-1
-  (package
-    (name "rust-proc-macro2")
-    (version "1.0.66")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "proc-macro2" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "1ngawak3lh5p63k5x2wk37qy65q1yylk1phwhbmb5pcv7zdk3yqq"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-unicode-ident" ,rust-unicode-ident-1))))
-    (home-page "https://github.com/dtolnay/proc-macro2")
-    (synopsis
-     "A substitute implementation of the compiler's `proc_macro` API to decouple token-based libraries from the procedural macro use case.")
-    (description
-     "This package provides a substitute implementation of the compiler's `proc_macro`
-API to decouple token-based libraries from the procedural macro use case.")
-    (license (list license:expat license:asl2.0))))
-
 (define-public rust-thiserror-impl-1
   (package
     (name "rust-thiserror-impl")
@@ -4978,26 +4813,6 @@ API to decouple token-based libraries from the procedural macro use case.")
     (home-page "https://github.com/dtolnay/thiserror")
     (synopsis "Implementation detail of the `thiserror` crate")
     (description "Implementation detail of the `thiserror` crate")
-    (license (list license:expat license:asl2.0))))
-
-(define-public rust-thiserror-1
-  (package
-    (name "rust-thiserror")
-    (version "1.0.44")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "thiserror" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "143zzmardcq447va2pw09iq9rajvr48v340riljghf84iah40431"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-thiserror-impl" ,rust-thiserror-impl-1))))
-    (home-page "https://github.com/dtolnay/thiserror")
-    (synopsis "derive(Error)")
-    (description "derive(Error)")
     (license (list license:expat license:asl2.0))))
 
 (define-public rust-lev-distance-0.1
@@ -5070,30 +4885,6 @@ instances, project names, application instances, etc.
     (description
      "This package provides a random name generator with names suitable for use in
 container instances, project names, application instances, etc.")
-    (license license:expat)))
-
-(define-public rust-dialoguer-0.10
-  (package
-    (name "rust-dialoguer")
-    (version "0.10.4")
-    (source (origin
-              (method url-fetch)
-              (uri (crate-uri "dialoguer" version))
-              (file-name (string-append name "-" version ".tar.gz"))
-              (sha256
-               (base32
-                "11rgzrhi677w9gf1r3ip2x361svdkjkr2m5dsfca9fcljacg5ijr"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:skip-build? #t
-       #:cargo-inputs (("rust-console" ,rust-console-0.15)
-                       ("rust-fuzzy-matcher" ,rust-fuzzy-matcher-0.3)
-                       ("rust-shell-words" ,rust-shell-words-1.1)
-                       ("rust-tempfile" ,rust-tempfile-3)
-                       ("rust-zeroize" ,rust-zeroize-1))))
-    (home-page "https://github.com/mitsuhiko/dialoguer")
-    (synopsis "A command line prompting library.")
-    (description "This package provides a command line prompting library.")
     (license license:expat)))
 
 (define-public rust-insta-1.18
