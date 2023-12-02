@@ -79,7 +79,7 @@
        (sha256
         (base32
          "033kmhvsz4mqrkc9ygdpf2x8ysi29d0pxdbmr9i1cffibnjiw7p6"))
-       (patches (search-patches "rust-delta-add-bool-to-option-feature.patch"))))
+       (patches (lp-search-patches "rust-delta-add-bool-to-option-feature.patch"))))
     (build-system cargo-build-system)
     (arguments
      `(#:install-source? #f

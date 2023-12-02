@@ -30,7 +30,7 @@
         (git-file-name name version))
        (sha256
         (base32 "1rc92x1w77gvlsz5b31bqy98kk78srxlbx3x11hxi84wzj3lf274"))
-       (patches (search-patches "wasm-pack-no-openssl-vendor.patch"))))
+       (patches (lp-search-patches "wasm-pack-no-openssl-vendor.patch"))))
     (build-system cargo-build-system)
     (arguments
      `(#:tests? #f
