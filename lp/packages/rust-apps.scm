@@ -341,3 +341,21 @@ support for Rust.")
     (description
      "This package provides a terminal workspace with batteries included")
     (license license:expat)))
+
+(define-public rust-src-1.64
+  (hidden-package
+   (package
+     (inherit rust-1.64)
+     (name "rust-src")
+     (build-system copy-build-system)
+     (native-inputs '())
+     (inputs '())
+     (native-search-paths '())
+     (outputs '("out"))
+     (arguments
+      `(#:install-plan
+        '(("library" "lib/rustlib/src/rust/library")
+          ("src" "lib/rustlib/src/rust/src"))))
+     (synopsis "Source code for the Rust standard library")
+     (description "This package provide source code for the Rust standard
+library, only use by rust-analyzer, make rust-analyzer out of the box."))))
