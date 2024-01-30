@@ -13,6 +13,7 @@
   #:use-module (guix git-download)
   #:use-module (guix download)
   #:use-module (guix build-system cargo)
+  #:use-module (guix build-system copy)
   #:use-module (guix packages)
   #:use-module (guix utils)
   #:use-module ((guix licenses)
