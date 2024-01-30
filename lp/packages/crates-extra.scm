@@ -366,6 +366,46 @@
 primitives.")
     (license (list license:asl2.0 license:expat))))
 
+(define-public rust-object-0.28.3
+  (package
+    (inherit rust-object-0.29)
+    (name "rust-object")
+    (version "0.28.3")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "object" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0mnllk6kwznchzryczyfmvlixzhz6f20n4dayycmyn8ll05wggj0"))))
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs
+       (("rust-compiler-builtins"
+         ,rust-compiler-builtins-0.1)
+        ("rust-crc32fast" ,rust-crc32fast-1)
+        ("rust-flate2" ,rust-flate2-1)
+        ("rust-hashbrown" ,rust-hashbrown-0.11)
+        ("rust-indexmap" ,rust-indexmap-1)
+        ("rust-memchr" ,rust-memchr-2)
+        ("rust-rustc-std-workspace-alloc"
+         ,rust-rustc-std-workspace-alloc-1)
+        ("rust-rustc-std-workspace-core"
+         ,rust-rustc-std-workspace-core-1)
+        ("rust-wasmparser" ,rust-wasmparser-0.57))
+       #:cargo-development-inputs
+       (("rust-memmap" ,rust-memmap-0.7))
+       #:phases
+       (modify-phases %standard-phases
+         (add-after 'unpack 'fix-version-requirements
+           (lambda _
+             (substitute* "Cargo.toml"
+               (("1.6.\\*")
+                ,(package-version rust-indexmap-1)))
+             #t)))))))
+
 (define-public rust-os-type-2
   (package
     (name "rust-os-type")
@@ -1950,7 +1990,7 @@ encoding.")
                        ("rust-leb128" ,rust-leb128-0.2)
                        ("rust-libloading" ,rust-libloading-0.7)
                        ("rust-loupe" ,rust-loupe-0.1)
-                       ("rust-object" ,rust-object-0.28)
+                       ("rust-object" ,rust-object-0.28.3)
                        ("rust-rkyv" ,rust-rkyv-0.7)
                        ("rust-serde" ,rust-serde-1)
                        ("rust-tempfile" ,rust-tempfile-3)
