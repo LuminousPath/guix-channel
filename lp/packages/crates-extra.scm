@@ -88,6 +88,29 @@ applications.")
     (description "Allows for the creation of serialised Rust tests")
     (license license:expat)))
 
+(define-public rust-drop-bomb-0.1
+  (package
+    (name "rust-drop-bomb")
+    (version "0.1.5")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "drop_bomb" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "1qc59a53ngwxpnbvl8xidp2cmwrl671dhbzw7zijmjjaq0hqxnlv"))))
+    (build-system cargo-build-system)
+    (arguments `(#:skip-build? #t))
+    (home-page
+     "https://github.com/matklad/drop_bomb")
+    (synopsis
+     "Runtime guard for implementing linear types")
+    (description
+     "This package provides a runtime guard for implementing linear types.")
+    (license (list license:expat license:asl2.0))))
+
 (define-public rust-dot-0.1
   (package
     (name "rust-dot")
