@@ -2,6 +2,7 @@
   #:use-module(gnu packages crates-apple)
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-graphics)
+  #:use-module (gnu packages crates-tls)
   #:use-module (gnu packages crates-web)
   #:use-module (gnu packages crates-windows)
   #:use-module (gnu packages crates-vcs)
