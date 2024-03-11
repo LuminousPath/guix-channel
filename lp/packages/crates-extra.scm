@@ -7,6 +7,7 @@
   #:use-module (gnu packages crates-vcs)
   #:use-module (gnu packages compression)
   #:use-module (gnu packages version-control)
+  #:use-module (gnu packages ssh)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages tls)
   #:use-module (guix build-system cargo)
