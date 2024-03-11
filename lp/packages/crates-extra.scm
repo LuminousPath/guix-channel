@@ -580,6 +580,26 @@ primitives.")
     (description "structured access to the output of `cargo metadata`")
     (license license:expat)))
 
+(define-public rust-lscolors-0.7
+  (package
+    (inherit rust-lscolors-0.16)
+    (name "rust-lscolors")
+    (version "0.7.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "lscolors" version))
+       (file-name
+        (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "0vn1824lagf0xdv5rxyl7m9fbrcylyjibmnd4634dnn98m68jjyj"))))
+    (arguments
+     `(#:cargo-inputs
+       (("rust-ansi-term" ,rust-ansi-term-0.12))
+       #:cargo-development-inputs
+       (("rust-tempfile" ,rust-tempfile-3))))))
+
 (define-public rust-is-executable-0.1
   (package
     (inherit rust-is-executable-1)
