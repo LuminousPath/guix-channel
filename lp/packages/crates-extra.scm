@@ -88,6 +88,29 @@ applications.")
     (description "Allows for the creation of serialised Rust tests")
     (license license:expat)))
 
+(define-public rust-mimalloc-0.1
+  (package
+    (name "rust-mimalloc")
+    (version "0.1.39")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "mimalloc" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32
+         "176w9gf5qxs07kd2q39f0k25rzmp4kyx5r13wc8sk052bqmr40gs"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs
+       (("rust-libmimalloc-sys" ,rust-libmimalloc-sys-0.1))))
+    (inputs (list mimalloc))
+    (home-page "https://crates.io/crates/mimalloc")
+    (synopsis "Performance and security oriented drop-in allocator")
+    (description "This package provides a performance and security oriented
+drop-in allocator.")
+    (license license:expat)))
+
 (define-public rust-lsp-server-0.5
   (package
     (name "rust-lsp-server")
