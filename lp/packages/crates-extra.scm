@@ -1,4 +1,5 @@
 (define-module (lp packages crates-extra)
+  #:use-module (gnu packages c)
   #:use-module (gnu packages cmake)
   #:use-module (gnu packages crates-apple)
   #:use-module (gnu packages crates-io)
