@@ -677,9 +677,33 @@ according to Unicode Standard Annex #29 rules.
 Unicode Standard Annex #29 rules.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-sysinfo-0.15
+  (package
+    (inherit rust-sysinfo-0.28)
+    (name "rust-sysinfo")
+    (version "0.15.11")
+    (source (origin
+              (method url-fetch)
+              (uri (crate-uri "sysinfo" version))
+              (file-name (string-append name "-" version ".tar.gz"))
+              (sha256
+               (base32
+                "0n713rhayp28z8j4pviqcg4blcp1yfvniwa1ipinp75hyv7lq0nx"))))
+    (arguments
+     `(#:skip-build? #t
+       #:cargo-inputs (("rust-cc" ,rust-cc-1)
+                       ("rust-cfg-if" ,rust-cfg-if-1)
+                       ("rust-core-foundation-sys" ,rust-core-foundation-sys-0.8)
+                       ("rust-doc-comment" ,rust-doc-comment-0.3)
+                       ("rust-libc" ,rust-libc-0.2)
+                       ("rust-ntapi" ,rust-ntapi-0.3)
+                       ("rust-once-cell" ,rust-once-cell-1)
+                       ("rust-rayon" ,rust-rayon-1)
+                       ("rust-winapi" ,rust-winapi-0.3))))))
+
 (define-public rust-sysinfo-0.24
   (package
-    (inherit rust-sysinfo-0.15)
+    (inherit rust-sysinfo-0.28)
     (name "rust-sysinfo")
     (version "0.24.7")
     (source (origin
