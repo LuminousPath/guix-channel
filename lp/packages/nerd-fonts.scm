@@ -11,7 +11,7 @@
 (define-public font-nerd-fonts-hasklig
   (package
     (name "font-nerd-fonts-hasklig")
-    (version "2.2.1")
+    (version "3.1.1")
     (source
      (origin
        (method url-fetch)
@@ -22,7 +22,7 @@
          "/Hasklig.zip"))
        (sha256
         (base32
-         "0qpq14allkr3x5i1sfbpaa9n6ilb6f9hy4z5r0i2vj1qbksbdffb"))))
+         "1y9rshxsshhr365hxr1nplz1lvrccs6f4rl7q6qdl8f5ijwmv0m6"))))
     (build-system font-build-system)
     (arguments
      `(#:phases
