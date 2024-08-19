@@ -8,6 +8,7 @@
   #:use-module (gnu packages curl)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages sequoia)
+  #:use-module (gnu packages ssh)
   #:use-module (gnu packages tls)
   #:use-module (gnu packages crates-crypto)
   #:use-module (guix build-system cargo)
