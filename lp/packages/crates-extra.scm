@@ -86,7 +86,7 @@ commands, forwarding local ports, etc.")
                        ("rust-bitflags" ,rust-bitflags-1)
                        ("rust-wasmer-wit-bindgen-rust-impl" ,rust-wasmer-wit-bindgen-rust-impl-0.1))))
     (home-page "")
-    (synopsis "wit-bindgen-gen-c")
+    (synopsis "Wit-bindgen-gen-c")
     (description "This package provides wit-bindgen-gen-c.")
     (license license:asl2.0)))
 
@@ -130,7 +130,7 @@ commands, forwarding local ports, etc.")
                        ("rust-wasmer-wit-bindgen-gen-core" ,rust-wasmer-wit-bindgen-gen-core-0.1)
                        ("rust-wasmer-wit-bindgen-gen-rust" ,rust-wasmer-wit-bindgen-gen-rust-0.1))))
     (home-page "")
-    (synopsis "wit-bindgen-gen-c")
+    (synopsis "Wit-bindgen-gen-c")
     (description "This package provides wit-bindgen-gen-c.")
     (license license:asl2.0)))
 
@@ -154,7 +154,8 @@ commands, forwarding local ports, etc.")
     (synopsis
      "Customizable Rust parsers for the WebAssembly Text formats WAT and WAST")
     (description
-     "This package provides Customizable Rust parsers for the @code{WebAssembly} Text formats WAT and WAST.")
+     "This package provides Customizable Rust parsers for the
+@code{WebAssembly} Text formats WAT and WAST.")
     (license (list license:asl2.0 ))))
 
 (define-public rust-wasmer-wit-parser-0.1
@@ -199,7 +200,7 @@ commands, forwarding local ports, etc.")
        #:cargo-inputs (("rust-anyhow" ,rust-anyhow-1)
                        ("rust-wasmer-wit-parser" ,rust-wasmer-wit-parser-0.1))))
     (home-page "")
-    (synopsis "wit-bindgen-gen-c")
+    (synopsis "Wit-bindgen-gen-c")
     (description "This package provides wit-bindgen-gen-c.")
     (license license:asl2.0)))
 
@@ -1263,7 +1264,8 @@ language for instruction selection in Cranelift.")
     (home-page "https://github.com/wasmerio/wasmer")
     (synopsis "WASI implementation library for Wasmer WebAssembly runtime")
     (description
-     "This package provides WASI implementation library for Wasmer @code{WebAssembly} runtime.")
+     "This package provides WASI implementation library for Wasmer
+@code{WebAssembly} runtime.")
     (license license:expat)))
 
 (define-public rust-ahash-0.8
@@ -1371,7 +1373,7 @@ performance.")
                        ("rust-rustc-std-workspace-core" ,rust-rustc-std-workspace-core-1)
                        ("rust-stable-deref-trait" ,rust-stable-deref-trait-1))))
     (home-page "https://github.com/gimli-rs/gimli")
-    (synopsis "library for reading and writing the DWARF debugging format.")
+    (synopsis "Library for reading and writing the DWARF debugging format")
     (description
      "This package provides a library for reading and writing the DWARF debugging
 format.")
@@ -1516,7 +1518,7 @@ format.")
                        ("rust-memmap2" ,rust-memmap2-0.5))))
     (home-page "https://github.com/CensoredUsername/dynasm-rs")
     (synopsis
-     "simple runtime for assembling code at runtime. Combined with the plugin crate dynasm it can be used to write JIT compilers easily.")
+     "Simple runtime for assembling code at runtime")
     (description
      "This package provides a simple runtime for assembling code at runtime.  Combined
 with the plugin crate dynasm it can be used to write JIT compilers easily.")
@@ -2102,7 +2104,7 @@ llvm-sys.")
      `(#:skip-build? #t
        #:cargo-inputs (("rust-rayon" ,rust-rayon-1))))
     (home-page "https://github.com/fitzgen/id-arena")
-    (synopsis "simple, id-based arena.")
+    (synopsis "Simple, id-based arena")
     (description "This package provides a simple, id-based arena.")
     (license (list license:expat license:asl2.0))))
 
@@ -2191,7 +2193,7 @@ llvm-sys.")
     (home-page
      "https://github.com/bytecodealliance/wasmtime/tree/main/cranelift/isle")
     (synopsis
-     "ISLE: Instruction Selection and Lowering Expressions. A domain-specific language for instruction selection in Cranelift")
+     "ISLE: Instruction Selection and Lowering Expressions")
     (description
      "This package provides ISLE: Instruction Selection and Lowering Expressions.  A domain-specific
 language for instruction selection in Cranelift.")
@@ -2218,7 +2220,7 @@ language for instruction selection in Cranelift.")
                        ("rust-log" ,rust-log-0.4)
                        ("rust-smallvec" ,rust-smallvec-1))))
     (home-page "https://github.com/bytecodealliance/wasmtime")
-    (synopsis "acyclic-egraph (aegraph) implementation for Cranelift")
+    (synopsis "Acyclic-egraph (aegraph) implementation for Cranelift")
     (description
      "This package provides acyclic-egraph (aegraph) implementation for Cranelift.")
     (license (list license:asl2.0 ))))
@@ -2302,7 +2304,7 @@ language for instruction selection in Cranelift.")
      `(#:skip-build? #t
        #:cargo-inputs (("rust-cranelift-entity" ,rust-cranelift-entity-0.91))))
     (home-page "https://github.com/bytecodealliance/wasmtime")
-    (synopsis "forest of B+-trees")
+    (synopsis "Forest of B+-trees")
     (description "This package provides a forest of B+-trees.")
     (license (list license:asl2.0 ))))
 
@@ -2394,7 +2396,7 @@ language for instruction selection in Cranelift.")
     (home-page
      "https://github.com/bytecodealliance/wasm-tools/tree/main/crates/wasmparser")
     (synopsis
-     "simple event-driven library for parsing WebAssembly binary files.")
+     "Simple event-driven library for parsing WebAssembly binary files")
     (description
      "This package provides a simple event-driven library for parsing
 @code{WebAssembly} binary files.")
@@ -2539,7 +2541,7 @@ language for instruction selection in Cranelift.")
                        ("rust-scopeguard" ,rust-scopeguard-1)
                        ("rust-windows-sys" ,rust-windows-sys-0.33))))
     (home-page "https://github.com/Amanieu/corosensei")
-    (synopsis "fast and safe implementation of stackful coroutines")
+    (synopsis "Fast and safe implementation of stackful coroutines")
     (description
      "This package provides a fast and safe implementation of stackful coroutines.")
     (license (list license:expat license:asl2.0))))
@@ -2704,7 +2706,7 @@ formats.")
        #:cargo-inputs (("rust-enum-iterator-derive" ,rust-enum-iterator-derive-0.7))))
     (home-page "https://github.com/stephaneyfx/enum-iterator")
     (synopsis
-     "Tools to iterate over all values of a type (e.g. all variants of an enumeration)")
+     "Tools to iterate over all values of a type")
     (description
      "This package provides tools to iterate over all values of a type (e.g. all
 variants of an enumeration).")
@@ -3027,7 +3029,7 @@ networks.")
        #:cargo-inputs (("rust-arrayvec" ,rust-arrayvec-0.7)
                        ("rust-thiserror" ,rust-thiserror-1))))
     (home-page "https://github.com/zellij-org/sixel-tokenizer")
-    (synopsis "tokenizer for serialized Sixel bytes")
+    (synopsis "Tokenizer for serialized Sixel bytes")
     (description
      "This package provides a tokenizer for serialized Sixel bytes.")
     (license license:expat)))
@@ -3221,7 +3223,7 @@ instructions for a fast and strong hash function.")
                        ("rust-serde" ,rust-serde-1)
                        ("rust-walkdir" ,rust-walkdir-2))))
     (home-page "https://github.com/notify-rs/notify")
-    (synopsis "notify event debouncer optimized for ease of use")
+    (synopsis "Notify event debouncer optimized for ease of use")
     (description
      "This package provides notify event debouncer optimized for ease of use.")
     (license (list license:cc0 license:artistic2.0))))
@@ -3241,9 +3243,10 @@ instructions for a fast and strong hash function.")
     (arguments
      `(#:skip-build? #t))
     (home-page
-     "https://github.com/philip-peterson/destructure_traitobject.git")
+     "https://github.com/philip-peterson/destructure_traitobject")
     (synopsis
-     "Unsafe helpers for working with raw trait objects. (Forked from traitobject)")
+     "Unsafe helpers for working with raw trait objects.
+(Forked from traitobject)")
     (description
      "This package provides Unsafe helpers for working with raw trait objects. (Forked from traitobject).")
     (license (list license:expat license:asl2.0))))
@@ -3285,7 +3288,7 @@ instructions for a fast and strong hash function.")
      `(#:skip-build? #t
        #:cargo-inputs (("rust-unsafe-any-ors" ,rust-unsafe-any-ors-1))))
     (home-page "https://github.com/orphanage-rs/rust-typemap")
-    (synopsis "typesafe store for many value types.")
+    (synopsis "Typesafe store for many value types")
     (description
      "This package provides a typesafe store for many value types.")
     (license license:expat)))
@@ -3305,7 +3308,7 @@ instructions for a fast and strong hash function.")
     (arguments
      `(#:skip-build? #t))
     (home-page "https://github.com/sfackler/rust-log-mdc")
-    (synopsis "mapped diagnostic context (MDC) for use with the `log` crate")
+    (synopsis "Mapped diagnostic context (MDC) for use with the `log` crate")
     (description
      "This package provides a mapped diagnostic context (MDC) for use with the `log`
 crate.")
@@ -3374,7 +3377,7 @@ for the `log` facade.")
                        ("rust-thiserror" ,rust-thiserror-1))))
     (home-page "https://kdl.dev")
     (synopsis
-     "Document-oriented KDL parser and API. Allows formatting/whitespace/comment-preserving parsing and modification of KDL text")
+     "Document-oriented KDL parser and API")
     (description
      "This package provides Document-oriented KDL parser and API. Allows
 formatting/whitespace/comment-preserving parsing and modification of KDL text.")
@@ -3415,7 +3418,7 @@ formatting/whitespace/comment-preserving parsing and modification of KDL text.")
     (arguments
      `(#:skip-build? #t
        #:cargo-inputs (("rust-lock-api" ,rust-lock-api-0.4))))
-    (home-page "https://github.com/4lDO2/spinning-rs.git")
+    (home-page "https://github.com/4lDO2/spinning-rs")
     (synopsis "Mutexes and SIX locks implemented by spinning")
     (description
      "This package provides Mutexes and SIX locks implemented by spinning.")
@@ -3489,7 +3492,7 @@ formatting/whitespace/comment-preserving parsing and modification of KDL text.")
      `(#:skip-build? #t))
     (home-page "https://github.com/emgyrz/colorsys.rs")
     (synopsis
-     "module for color conversion and mutation. Works with RGB(a)( as hexadecimal too), HSL(a), CMYK color models and with ANSI color codes")
+     "Module for color conversion and mutation")
     (description
      "This package provides a module for color conversion and mutation.  Works with
 RGB(a)( as hexadecimal too), HSL(a), CMYK color models and with ANSI color
@@ -3606,7 +3609,7 @@ codes.")
     (arguments
      `(#:skip-build? #t))
     (home-page "https://github.com/ken-matsui/lev_distance#readme")
-    (synopsis "copy of Levenshtein distance implementation from Rust Compiler")
+    (synopsis "Copy of Levenshtein distance implementation from Rust Compiler")
     (description
      "This package provides a copy of Levenshtein distance implementation from Rust
 Compiler.")
@@ -3630,7 +3633,7 @@ Compiler.")
                        ("rust-lev-distance" ,rust-lev-distance-0.1))))
     (home-page "https://github.com/ken-matsui/suggest#readme")
     (synopsis
-     "minimal library to provide similar name suggestions like \"Did you mean?\"")
+     "Minimal library to provide similar name suggestions like \"Did you mean?\"")
     (description
      "This package provides a minimal library to provide similar name suggestions like
 \"Did you mean?\".")
@@ -3717,7 +3720,7 @@ container instances, project names, application instances, etc.")
                                    ("rust-rand-hc" ,rust-rand-hc-0.3)
                                    ("rust-rand-pcg" ,rust-rand-pcg-0.3))))
     (home-page "https://rust-random.github.io/book")
-    (synopsis "Random number generators and other randomness functionality.")
+    (synopsis "Random number generators and other randomness functionality")
     (description
      "This package provides Random number generators and other randomness functionality.")
     (license (list license:expat license:asl2.0))))
