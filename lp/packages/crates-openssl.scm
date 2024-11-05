@@ -46,7 +46,7 @@
                        ("rust-cc" ,rust-cc-1)
                        ("rust-libc" ,rust-libc-0.2)
                        ("rust-pkg-config" ,rust-pkg-config-0.3)
-                       ("rust-openssl-src" ,rust-openssl-src-300)
+                       ("rust-openssl-src" ,rust-openssl-src-300.2.0+3.2.0)
                        ("rust-vcpkg" ,rust-vcpkg-0.2))))
     (native-inputs
      (list pkg-config))
@@ -57,7 +57,7 @@
     (description "This package provides FFI bindings to @code{OpenSSL}.")
     (license license:expat)))
 
-(define-public rust-openssl-src-300
+(define-public rust-openssl-src-300.2.0+3.2.0
   (package
     (name "rust-openssl-src")
     (version "300.2.0+3.2.0")
