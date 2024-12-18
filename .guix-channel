@@ -2,6 +2,6 @@
  (version 0)
  (dependencies
   (channel
-   (name guix-pin)
+   (name guix)
    (url "https://git.savannah.gnu.org/git/guix.git")
-   (commit "888fdfd1b1c4e4b3913b7b229f1ebc9f4596be20"))))
+   (branch "master")))
