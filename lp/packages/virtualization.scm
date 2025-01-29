@@ -15,7 +15,8 @@
     (version "2.2.9")
     (source (origin
               (method url-fetch)
-              (uri (string-append "https://github.com/hashicorp/vagrant/archive/v" version ".tar.gz"))
+              (uri (string-append "https://github.com/hashicorp/vagrant/archive/"
+                                  "v" version ".tar.gz"))
               (file-name (string-append name "-" version ".tar.gz"))
               (sha256
                (base32
@@ -32,32 +33,30 @@
        ("ruby-i18n" ,ruby-i18n-1.8)
        ("ruby-listen" ,ruby-listen-3.1)
        ("ruby-log4r" ,ruby-log4r)
-       ("ruby-net-ssh" ,ruby-net-ssh-5)
+       ;; ("ruby-net-ssh" ,ruby-net-ssh-5)
        ("ruby-net-scp" ,ruby-net-scp-1.2.0)
        ("ruby-net-sftp" ,ruby-net-sftp)
        ("ruby-rb-kqueue" ,ruby-rb-kqueue)
        ("ruby-ed25519" ,ruby-ed25519)
        ("ruby-bcrypt-pbkdf" ,ruby-bcrypt-pbkdf)
        ("ruby-rest-client" ,ruby-rest-client)
-       ("ruby-rubyzip" ,ruby-rubyzip-2)
+       ;; ("ruby-rubyzip" ,ruby-rubyzip-2)
        ("ruby-wdm" ,ruby-wdm)
        ("ruby-winrm" ,ruby-winrm)
        ("ruby-winrm-fs" ,ruby-winrm-fs)
        ("ruby-winrm-elevated" ,ruby-winrm-elevated)
        ("ruby-vagrant-cloud" ,ruby-vagrant-cloud)
-       ("ruby-ruby-dep" ,ruby-ruby-dep)
-       ))
+       ("ruby-ruby-dep" ,ruby-ruby-dep)))
     (native-inputs
      `(("bundler" ,bundler)
        ("ruby-rake" ,ruby-rake-12)
        ("ruby-rspec" ,ruby-rspec-3.5)
        ("ruby-rspec-its" ,ruby-rspec-its)
        ("ruby-webmock" ,ruby-webmock-2)
-       ("ruby-fake-ftp" ,ruby-fake-ftp)
-       ))
+       ("ruby-fake-ftp" ,ruby-fake-ftp)))
     (synopsis
-     "Vagrant is a tool for building and distributing development environments.")
+     "Tool for building and distributing development environments")
     (description
-     "Vagrant is a tool for building and distributing development environments.")
+     "Tool for building and distributing development environments")
     (home-page "http://www.vagrantup.com")
     (license license:expat)))

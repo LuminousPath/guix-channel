@@ -1,5 +1,7 @@
 (define-module (lp packages crates-extra)
   #:use-module (gnu packages compression)
+  #:use-module (gnu packages crates-compression)
+  #:use-module (gnu packages crates-check)
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-graphics)
   #:use-module (gnu packages crates-web)
@@ -3809,5 +3811,105 @@ commands, forwarding local ports, etc.")
     (description
      "This package provides Bindings to libssh2 for interacting with SSH servers and executing remote
 commands, forwarding local ports, etc.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-daemonize-0.4
+  (package
+    (name "rust-daemonize")
+    (version "0.4.1")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "daemonize" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "05cqr2zjxrxyg23snykd03sgqwxn0pvwj2lzh50bclsgwc9lbhkh"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-boxfnonce" ,rust-boxfnonce-0.1)
+                       ("rust-libc" ,rust-libc-0.2))
+       #:cargo-development-inputs (("rust-tempdir" ,rust-tempdir-0.3))))
+    (home-page "https://github.com/knsd/daemonize")
+    (synopsis
+     "Library to enable your code run as a daemon process on Unix-like systems")
+    (description
+     "This package provides Library to enable your code run as a daemon process on Unix-like systems.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-common-path-1
+  (package
+    (name "rust-common-path")
+    (version "1.0.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "common-path" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "00firjly5xpb5hhmivnnhwakr1cwbqv8ckzyj0vbxczl89czg0i3"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-development-inputs (("rust-rand" ,rust-rand-0.6))))
+    (home-page "https://gitlab.com/pwoolcoc/common-path")
+    (synopsis "Finds the common prefix between a set of paths")
+    (description
+     "This package provides Finds the common prefix between a set of paths.")
+    (license (list license:expat license:asl2.0))))
+
+(define-public rust-similar-1
+  (package
+    (name "rust-similar")
+    (version "1.3.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "similar" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "1v4ara277c2s8gcv821b9392ki5zzw95brfs8vy3bcjpln4d9l8s"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-bstr" ,rust-bstr-0.2)
+                       ("rust-unicode-segmentation" ,rust-unicode-segmentation-1))
+       #:cargo-development-inputs (("rust-console" ,rust-console-0.14)
+                                   ("rust-insta" ,rust-insta-1))))
+    (home-page "https://github.com/mitsuhiko/similar")
+    (synopsis "diff library for Rust")
+    (description "This package provides a diff library for Rust.")
+    (license license:asl2.0)))
+
+(define-public rust-gimli-0.26
+  (package
+    (name "rust-gimli")
+    (version "0.26.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "gimli" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0pafbk64rznibgnvfidhm1pqxd14a5s9m50yvsgnbv38b8n0w0r2"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-compiler-builtins" ,rust-compiler-builtins-0.1)
+                       ("rust-fallible-iterator" ,rust-fallible-iterator-0.2)
+                       ("rust-indexmap" ,rust-indexmap-1)
+                       ("rust-rustc-std-workspace-alloc" ,rust-rustc-std-workspace-alloc-1)
+                       ("rust-rustc-std-workspace-core" ,rust-rustc-std-workspace-core-1)
+                       ("rust-stable-deref-trait" ,rust-stable-deref-trait-1))
+       #:cargo-development-inputs (("rust-crossbeam" ,rust-crossbeam-0.8)
+                                   ("rust-getopts" ,rust-getopts-0.2)
+                                   ("rust-memmap2" ,rust-memmap2-0.5)
+                                   ("rust-num-cpus" ,rust-num-cpus-1)
+                                   ("rust-object" ,rust-object-0.29)
+                                   ("rust-rayon" ,rust-rayon-1)
+                                   ("rust-regex" ,rust-regex-1)
+                                   ("rust-test-assembler" ,rust-test-assembler-0.1)
+                                   ("rust-typed-arena" ,rust-typed-arena-2))))
+    (home-page "https://github.com/gimli-rs/gimli")
+    (synopsis "library for reading and writing the DWARF debugging format.")
+    (description
+     "This package provides a library for reading and writing the DWARF debugging
+format.")
     (license (list license:expat license:asl2.0))))
 

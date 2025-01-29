@@ -36,5 +36,5 @@
     (home-page "https://www.nerdfonts.com/")
     (synopsis "Nerd fonts variant of hasklig font")
     (description
-     "nerd fonts variant of hasklig")
+     "Nerd fonts variant of hasklig")
     (license license:silofl1.1)))

@@ -1,6 +1,7 @@
 (define-module (lp packages rust-apps)
   #:use-module (gnu packages commencement)
   #:use-module (gnu packages compression)
+  #:use-module (gnu packages crates-check)
   #:use-module (gnu packages crates-graphics)
   #:use-module (gnu packages crates-io)
   #:use-module (gnu packages crates-windows)
@@ -58,7 +59,7 @@
     (inputs
      (list zlib openssl curl libssh2 perl))
     (home-page "https://zellij.dev")
-    (synopsis "terminal workspace with batteries included")
+    (synopsis "Terminal workspace with batteries included")
     (description
      "This package provides a terminal workspace with batteries included.")
     (license license:expat)))
@@ -99,6 +100,6 @@
        #:cargo-development-inputs (("rust-assert-cmd" ,rust-assert-cmd-2)
                                    ("rust-tempfile" ,rust-tempfile-3))))
     (home-page "https://github.com/bootandy/dust")
-    (synopsis "more intuitive version of du")
+    (synopsis "More intuitive version of du")
     (description "This package provides a more intuitive version of du.")
     (license license:asl2.0)))
