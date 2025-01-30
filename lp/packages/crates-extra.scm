@@ -3913,3 +3913,36 @@ commands, forwarding local ports, etc.")
 format.")
     (license (list license:expat license:asl2.0))))
 
+(define-public rust-syn-1
+  (package
+    (name "rust-syn")
+    (version "1.0.109")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "syn" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0ds2if4600bd59wsv7jjgfkayfzy3hnazs394kz6zdkmna8l3dkj"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
+                       ("rust-quote" ,rust-quote-1)
+                       ("rust-unicode-ident" ,rust-unicode-ident-1))
+       #:cargo-development-inputs (("rust-anyhow" ,rust-anyhow-1)
+                                   ("rust-automod" ,rust-automod-1)
+                                   ("rust-flate2" ,rust-flate2-1)
+                                   ("rust-insta" ,rust-insta-1)
+                                   ("rust-rayon" ,rust-rayon-1)
+                                   ("rust-ref-cast" ,rust-ref-cast-1)
+                                   ("rust-regex" ,rust-regex-1)
+                                   ("rust-reqwest" ,rust-reqwest-0.11)
+                                   ("rust-syn-test-suite" ,rust-syn-test-suite-0.0.0)
+                                   ("rust-tar" ,rust-tar-0.4)
+                                   ("rust-termcolor" ,rust-termcolor-1)
+                                   ("rust-walkdir" ,rust-walkdir-2))))
+    (home-page "https://github.com/dtolnay/syn")
+    (synopsis "Parser for Rust source code")
+    (description "This package provides Parser for Rust source code.")
+    (license (list license:expat license:asl2.0))))
+

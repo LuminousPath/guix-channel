@@ -12,17 +12,17 @@
   #:use-module ((guix licenses)
                 #:prefix license:))
 
-(define-public rust-openssl-sys-0.9.103
+(define-public rust-openssl-sys-0.9.104
   (package
     (name "rust-openssl-sys")
-    (version "0.9.103")
+    (version "0.9.104")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "openssl-sys" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "1mi9r5vbgqqwfa2nqlh2m0r1v5abhzjigfbi7ja0mx0xx7p8v7kz"))
+        (base32 "0hf712xcxmycnlc09r8d446b3mwqchsbfrjv374fp7grrc3g7as5"))
        (snippet
         #~(begin
             (use-modules (guix build utils))

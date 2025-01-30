@@ -124,8 +124,8 @@
              (substitute* "setup.py"
                ;; Relax some of the requirements.
                (("(keyring>=21.2.0),<22.0.0" _ keyring) keyring)
-               (("(packaging>=20.4),<21.0" _ packaging) packaging)))))
-       ))
+               (("(packaging>=20.4),<21.0" _ packaging) packaging))))
+         (delete 'sanity-check))))
     (propagated-inputs
      (list python-cachecontrol
            python-cachy

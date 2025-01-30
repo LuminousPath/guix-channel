@@ -25,7 +25,7 @@
 (module-define!
  (resolve-module '(gnu packages crates-io))
                  'rust-openssl-sys-0.9
-                 rust-openssl-sys-0.9.103)
+                 rust-openssl-sys-0.9.104)
 
 (define-public zellij-0.40
   (package
