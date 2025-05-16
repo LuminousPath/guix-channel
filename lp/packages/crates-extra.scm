@@ -2919,3 +2919,25 @@ allocations on an expression or function basis.")
     (description "This package provides a snapshot testing library for Rust.")
     (license license:asl2.0)))
 
+(define-public rust-alloc-counter-macro-0.0.2
+  (package
+    (name "rust-alloc-counter-macro")
+    (version "0.0.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "alloc_counter_macro" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "0nifqalryavmrdlkyv7cznp8yfjj16x0bjqzvjndw0fxk8gzhlhs"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:cargo-inputs (("rust-proc-macro2" ,rust-proc-macro2-1)
+                       ("rust-quote" ,rust-quote-1)
+                       ("rust-syn" ,rust-syn-1))))
+    (home-page "")
+    (synopsis "The #[no_alloc] macro for the alloc_counter crate")
+    (description
+     "This package provides The #[no_alloc] macro for the alloc_counter crate.")
+    (license (list license:expat license:asl2.0))))
+
