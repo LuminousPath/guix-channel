@@ -28,14 +28,14 @@
 (define-public zellij-0.40
   (package
     (name "zellij")
-    (version "0.40.1")
+    (version "0.41.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "zellij" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "0gmx51fjm6spfkbjnb3zxfnfhriakx3jjr1hyqr85c7vi10mmxy4"))))
+        (base32 "10c35pw25i2g6j8dd4vx6vzl3y6rr1rivvci04zkyq09w5wpk8xk"))))
     (build-system cargo-build-system)
     (arguments
      `(#:tests? #f ; no tests
@@ -45,9 +45,9 @@
                        ("rust-names" ,rust-names-0.14)
                        ("rust-suggest" ,rust-suggest-0.4)
                        ("rust-thiserror" ,rust-thiserror-1)
-                       ("rust-zellij-client" ,rust-zellij-client-0.40)
-                       ("rust-zellij-server" ,rust-zellij-server-0.40)
-                       ("rust-zellij-utils" ,rust-zellij-utils-0.40))
+                       ("rust-zellij-client" ,rust-zellij-client-0.41)
+                       ("rust-zellij-server" ,rust-zellij-server-0.41)
+                       ("rust-zellij-utils" ,rust-zellij-utils-0.41))
        #:cargo-development-inputs (("rust-insta" ,rust-insta-1)
                                    ("rust-rand" ,rust-rand-0.8)
                                    ("rust-regex" ,rust-regex-1)
@@ -55,7 +55,7 @@
     (native-inputs
      (list pkg-config gcc-toolchain))
     (inputs
-     (list zlib openssl curl libssh2 perl))
+     (list zlib openssl curl libssh2 perl (list zstd "lib")))
     (home-page "https://zellij.dev")
     (synopsis "Terminal workspace with batteries included")
     (description
@@ -65,14 +65,14 @@
 (define-public dust-1
   (package
     (name "dust")
-    (version "1.1.1")
+    (version "1.1.2")
     (source
      (origin
        (method url-fetch)
        (uri (crate-uri "du-dust" version))
        (file-name (string-append name "-" version ".tar.gz"))
        (sha256
-        (base32 "0qr6ikq2ds8bq35iw480qyhf3d43dj61wiwp8587n3mgqf5djx8w"))))
+        (base32 "1ilqns5j1177mvc9hnxdzlgdqgs978cfnj61yh0gk0iy4ajfqhbm"))))
     (build-system cargo-build-system)
     (arguments
      `(#:cargo-inputs (("rust-ansi-term" ,rust-ansi-term-0.12)
