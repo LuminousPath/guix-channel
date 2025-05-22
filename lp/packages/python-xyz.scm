@@ -57,7 +57,7 @@
 (define-public python-argcomplete-1.12
   (package
     (inherit python-argcomplete)
-    (name "python-argcomplete-1.12")
+    (name "python-argcomplete")
     (version "1.12.1")
     (source
      (origin
@@ -66,6 +66,10 @@
        (sha256
         (base32
          "1rp4m3cvafr0yb09k4s22vvrphj4ysjhq43lx9d1gcjvqd229744")))))) ; might need to re-add a v1.11 patch for the fish shell
+    (build-system python-build-system)
+    (arguments
+     ;; tests rely on some older functionality for packages that I don't want to recreate the old versions for.
+     `(#:tests? #f))))
 
 (define-public python-pyright
   (package
