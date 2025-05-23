@@ -30,7 +30,7 @@
 (define-public ueberzugpp
   (package
     (name "ueberzugpp")
-    (version "2.9.5")
+    (version "2.9.6")
     (source
      (origin
        (method git-fetch)
@@ -39,7 +39,7 @@
              (commit (string-append "v" version))))
        (file-name (git-file-name name version))
        (sha256
-        (base32 "1rkn7n44raw38hgl2716kllbaf39icddml19shkhk8i94sf4ir86"))))
+        (base32 "0m1w53asd7sscxv20rb23p5lsmr5nz2510f08l1iyfksgk1533xa"))))
     (build-system cmake-build-system)
     (arguments
      (list ;; no tests idk
