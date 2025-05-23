@@ -21,10 +21,8 @@
   #:use-module ((guix licenses)
                 #:prefix license:))
 
-(module-define!
- (resolve-module '(gnu packages crates-io))
-                 'rust-openssl-sys-0.9
-                 rust-openssl-sys-0.9.104)
+(module-define! (resolve-module '(gnu packages crates-io))
+                'rust-openssl-sys-0.9 rust-openssl-sys-0.9.104)
 
 (define-public dust-1
   (package
@@ -80,7 +78,7 @@
         (base32 "0laxg7qprbixp20cqdy824vrxq692c2x92aqigw5a84s0b69dbrn"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:tests? #f ; no tests
+     `(#:tests? #f ;no tests
        #:install-source? #f
        #:cargo-inputs (("rust-anyhow" ,rust-anyhow-1)
                        ("rust-byteorder" ,rust-byteorder-1)
@@ -145,7 +143,7 @@
         (base32 "10c35pw25i2g6j8dd4vx6vzl3y6rr1rivvci04zkyq09w5wpk8xk"))))
     (build-system cargo-build-system)
     (arguments
-     `(#:tests? #f ; no tests
+     `(#:tests? #f ;no tests
        #:install-source? #f
        #:cargo-inputs (("rust-dialoguer" ,rust-dialoguer-0.10)
                        ("rust-log" ,rust-log-0.4)
@@ -159,13 +157,15 @@
                                    ("rust-rand" ,rust-rand-0.8)
                                    ("rust-regex" ,rust-regex-1)
                                    ("rust-ssh2" ,rust-ssh2-0.9))))
-    (native-inputs
-     (list pkg-config gcc-toolchain))
-    (inputs
-     (list zlib openssl curl libssh2 perl (list zstd "lib")))
+    (native-inputs (list pkg-config gcc-toolchain))
+    (inputs (list zlib
+                  openssl
+                  curl
+                  libssh2
+                  perl
+                  `(,zstd "lib")))
     (home-page "https://zellij.dev")
     (synopsis "Terminal workspace with batteries included")
     (description
      "This package provides a terminal workspace with batteries included.")
     (license license:expat)))
-

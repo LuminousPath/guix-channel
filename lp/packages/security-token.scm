@@ -22,17 +22,10 @@
        (sha256
         (base32 "1qg4zgrkliikwn2zh25id4wjnc9xwg07s9ik9i1x4ks7mj1smi9m"))))
     (build-system pyproject-build-system)
-    (propagated-inputs (list python-click
-                             python-cryptography
-                             python-fido2
-                             python-keyring
-                             python-pyscard))
-    (native-inputs (list
-                    python-poetry-core
-                    python-pytest
-                    python-makefun))
+    (propagated-inputs (list python-click python-cryptography python-fido2
+                             python-keyring python-pyscard))
+    (native-inputs (list python-poetry-core python-pytest python-makefun))
     (home-page "https://github.com/Yubico/yubikey-manager")
     (synopsis "Tool for managing your YubiKey configuration")
     (description "Tool for managing your @code{YubiKey} configuration.")
     (license license:bsd-3)))
-
