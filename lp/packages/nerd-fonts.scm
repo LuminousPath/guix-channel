@@ -19,10 +19,10 @@
         (string-append
          "https://github.com/ryanoasis/nerd-fonts/releases/download/v"
          version
-         "/Hasklig.zip"))
+         "/Hasklig.tar.xz"))
        (sha256
         (base32
-         "1y9rshxsshhr365hxr1nplz1lvrccs6f4rl7q6qdl8f5ijwmv0m6"))))
+         "117236vqcf2j70irb5a36n509swssmv2310c43b1ffxx5m4ysq0n"))))
     (build-system font-build-system)
     (arguments
      `(#:phases
