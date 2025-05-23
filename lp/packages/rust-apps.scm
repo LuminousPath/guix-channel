@@ -26,43 +26,6 @@
                  'rust-openssl-sys-0.9
                  rust-openssl-sys-0.9.104)
 
-(define-public zellij-0.40
-  (package
-    (name "zellij")
-    (version "0.41.2")
-    (source
-     (origin
-       (method url-fetch)
-       (uri (crate-uri "zellij" version))
-       (file-name (string-append name "-" version ".tar.gz"))
-       (sha256
-        (base32 "10c35pw25i2g6j8dd4vx6vzl3y6rr1rivvci04zkyq09w5wpk8xk"))))
-    (build-system cargo-build-system)
-    (arguments
-     `(#:tests? #f ; no tests
-       #:install-source? #f
-       #:cargo-inputs (("rust-dialoguer" ,rust-dialoguer-0.10)
-                       ("rust-log" ,rust-log-0.4)
-                       ("rust-names" ,rust-names-0.14)
-                       ("rust-suggest" ,rust-suggest-0.4)
-                       ("rust-thiserror" ,rust-thiserror-1)
-                       ("rust-zellij-client" ,rust-zellij-client-0.41)
-                       ("rust-zellij-server" ,rust-zellij-server-0.41)
-                       ("rust-zellij-utils" ,rust-zellij-utils-0.41))
-       #:cargo-development-inputs (("rust-insta" ,rust-insta-1)
-                                   ("rust-rand" ,rust-rand-0.8)
-                                   ("rust-regex" ,rust-regex-1)
-                                   ("rust-ssh2" ,rust-ssh2-0.9))))
-    (native-inputs
-     (list pkg-config gcc-toolchain))
-    (inputs
-     (list zlib openssl curl libssh2 perl (list zstd "lib")))
-    (home-page "https://zellij.dev")
-    (synopsis "Terminal workspace with batteries included")
-    (description
-     "This package provides a terminal workspace with batteries included.")
-    (license license:expat)))
-
 (define-public dust-1
   (package
     (name "dust")
@@ -168,3 +131,41 @@
     (synopsis "LaTeX Language Server")
     (description "This package provides @code{LaTeX} Language Server.")
     (license license:gpl3)))
+
+(define-public zellij-0.40
+  (package
+    (name "zellij")
+    (version "0.41.2")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (crate-uri "zellij" version))
+       (file-name (string-append name "-" version ".tar.gz"))
+       (sha256
+        (base32 "10c35pw25i2g6j8dd4vx6vzl3y6rr1rivvci04zkyq09w5wpk8xk"))))
+    (build-system cargo-build-system)
+    (arguments
+     `(#:tests? #f ; no tests
+       #:install-source? #f
+       #:cargo-inputs (("rust-dialoguer" ,rust-dialoguer-0.10)
+                       ("rust-log" ,rust-log-0.4)
+                       ("rust-names" ,rust-names-0.14)
+                       ("rust-suggest" ,rust-suggest-0.4)
+                       ("rust-thiserror" ,rust-thiserror-1)
+                       ("rust-zellij-client" ,rust-zellij-client-0.41)
+                       ("rust-zellij-server" ,rust-zellij-server-0.41)
+                       ("rust-zellij-utils" ,rust-zellij-utils-0.41))
+       #:cargo-development-inputs (("rust-insta" ,rust-insta-1.6)
+                                   ("rust-rand" ,rust-rand-0.8)
+                                   ("rust-regex" ,rust-regex-1)
+                                   ("rust-ssh2" ,rust-ssh2-0.9))))
+    (native-inputs
+     (list pkg-config gcc-toolchain))
+    (inputs
+     (list zlib openssl curl libssh2 perl (list zstd "lib")))
+    (home-page "https://zellij.dev")
+    (synopsis "Terminal workspace with batteries included")
+    (description
+     "This package provides a terminal workspace with batteries included.")
+    (license license:expat)))
+
