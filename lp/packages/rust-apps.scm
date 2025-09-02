@@ -1,10 +1,7 @@
 (define-module (lp packages rust-apps)
   #:use-module (gnu packages commencement)
   #:use-module (gnu packages compression)
-  #:use-module (gnu packages crates-compression)
-  #:use-module (gnu packages crates-graphics)
-  #:use-module (gnu packages crates-io)
-  #:use-module (gnu packages crates-windows)
+  #:use-module (past-crates packages crates-io)
   #:use-module (gnu packages curl)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages pkg-config)
@@ -21,7 +18,7 @@
   #:use-module ((guix licenses)
                 #:prefix license:))
 
-(module-define! (resolve-module '(gnu packages crates-io))
+(module-define! (resolve-module '(past-crates packages crates-io))
                 'rust-openssl-sys-0.9 rust-openssl-sys-0.9.104)
 
 (define-public dust-1

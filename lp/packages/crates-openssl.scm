@@ -1,6 +1,5 @@
 (define-module (lp packages crates-openssl)
-  #:use-module (gnu packages commencement)
-  #:use-module (gnu packages crates-io)
+  #:use-module (past-crates packages crates-io)
   #:use-module (gnu packages perl)
   #:use-module (gnu packages pkg-config)
   #:use-module (gnu packages tls)
