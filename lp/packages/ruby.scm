@@ -5,6 +5,7 @@
   #:use-module (guix download)
   #:use-module (guix build-system ruby)
   #:use-module (gnu packages ruby-xyz)
+  #:use-module (gnu packages ruby-check)
   #:use-module (guix gexp)
   #:use-module (guix git-download)
   #:use-module (gnu packages libffi)
