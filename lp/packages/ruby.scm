@@ -5,7 +5,6 @@
   #:use-module (guix download)
   #:use-module (guix build-system ruby)
   #:use-module (gnu packages ruby-xyz)
-  #:use-module (gnu packages ruby-check)
   #:use-module (guix gexp)
   #:use-module (guix git-download)
   #:use-module (gnu packages libffi)
@@ -300,7 +299,7 @@ difference between two hashes.")
     (inputs (list ;ruby-thor is used for the command line interface, and is referenced
                   ;; in the wrapper, and therefore just needs to be an input.
                   ruby-thor))
-    (propagated-inputs (list ruby-rb-fsevent ruby-rb-inotify ruby-dep))
+    (propagated-inputs (list ruby-rb-fsevent ruby-rb-inotify ruby-dep-1.5))
     (synopsis "Listen to file modifications")
     (description "The Listen gem listens to file modifications and notifies
 you about the changes.")
@@ -506,9 +505,32 @@ paths.  * Supports parallel execution of tasks.")
     (home-page "https://github.com/rspec")
     (license license:expat)))
 
-(define-public ruby-ruby-dep
+(define-public ruby-dep-1.5
   (package
-    (name "ruby-ruby-dep")
+    (name "ruby-dep")
+    (version "1.5.0")
+    (source
+     (origin
+       (method url-fetch)
+       (uri (rubygems-uri "ruby_dep" version))
+       (sha256
+        (base32
+         "1c1bkl97i9mkcvkn1jks346ksnvnnp84cs22gwl0vd7radybrgy5"))))
+    (build-system ruby-build-system)
+    (arguments
+     (list
+      #:ruby ruby-2.7
+      #:tests? #f)) ; No included tests
+    (synopsis "Creates a version constraint of supported Rubies")
+    (description
+     "This package helps create a version constraint of supported Rubies,
+suitable for a gemspec file.")
+    (home-page "https://github.com/e2/ruby_dep")
+    (license license:expat)))
+
+(define-public ruby-dep-1.3
+  (package
+    (name "ruby-dep")
     (version "1.3.1")
     (source
      (origin
